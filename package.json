@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.9"
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "astro": "^5.16.9",
+    "bootstrap": "^5.3.8"
   }
 }
