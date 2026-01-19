@@ -10,7 +10,7 @@ const { title = 'DevsDoc - Technology IT Solutions', description = 'Technology I
 ---
 
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" style="color-scheme: light;">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -18,6 +18,8 @@ const { title = 'DevsDoc - Technology IT Solutions', description = 'Technology I
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light only" />
+    <meta name="theme-color" content="#ffffff" />
     <title>{title}</title>
 
     <!-- Icon Font CSS -->
@@ -32,6 +34,44 @@ const { title = 'DevsDoc - Technology IT Solutions', description = 'Technology I
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="/assets/css/style.css" />
+    
+    <!-- Force Light Mode CSS -->
+    <style>
+      /* Force light mode for the entire site */
+      :root {
+        color-scheme: light only;
+      }
+      
+      html {
+        color-scheme: light !important;
+        background-color: #ffffff !important;
+      }
+      
+      body {
+        color-scheme: light !important;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+      }
+      
+      /* Override any dark mode media queries */
+      @media (prefers-color-scheme: dark) {
+        html,
+        body {
+          color-scheme: light !important;
+          background-color: #ffffff !important;
+          color: #000000 !important;
+        }
+        
+        * {
+          color-scheme: light !important;
+        }
+      }
+      
+      /* Ensure all elements respect light mode */
+      * {
+        color-scheme: light;
+      }
+    </style>
   </head>
   <body>
     <div class="main-wrapper">

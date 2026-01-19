@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import PageBannerDynamic from '../components/PageBannerDynamic.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+import ContactForm from '../components/ContactForm.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Contact Us - DevsDoc">
+  <Navbar />
+  <PageBannerDynamic title="Contact Us" currentPage="Contact" />
+
+  <ContactInfo />
+  <ContactForm />
+
+  <!-- Why Work With Us Start -->
+  <div class="section techwix-why-choose-us-section-02 section-padding" style="background-color: #f8f8f8; padding-top: 100px; padding-bottom: 70px;">
+    <div class="container">
+      <div class="why-choose-us-wrap">
+        <div class="section-title text-center" style="margin-bottom: 60px;">
+          <h3 class="sub-title">Why Work With DevsDoc</h3>
+          <h2 class="title">Your Trusted Technology Partner</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <!-- Single Why Choose Us Start -->
+            <div class="single-why-choose-us text-center" style="margin-bottom: 40px; padding: 0 15px;">
+              <div class="choose-us-icon" style="margin-bottom: 25px;">
+                <img src="/assets/images/ser-icon9.png" alt="">
+              </div>
+              <div class="choose-us-content">
+                <h3 class="title" style="margin-bottom: 15px;">Expert Team</h3>
+                <p>Experienced developers skilled in modern web, mobile, AI, and cloud technologies.</p>
+              </div>
+            </div>
+            <!-- Single Why Choose Us End -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Single Why Choose Us Start -->
+            <div class="single-why-choose-us text-center" style="margin-bottom: 40px; padding: 0 15px;">
+              <div class="choose-us-icon" style="margin-bottom: 25px;">
+                <img src="/assets/images/ser-icon10.png" alt="">
+              </div>
+              <div class="choose-us-content">
+                <h3 class="title" style="margin-bottom: 15px;">Agile Approach</h3>
+                <p>Fast, iterative development with continuous feedback and rapid deployment cycles.</p>
+              </div>
+            </div>
+            <!-- Single Why Choose Us End -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Single Why Choose Us Start -->
+            <div class="single-why-choose-us text-center" style="margin-bottom: 40px; padding: 0 15px;">
+              <div class="choose-us-icon" style="margin-bottom: 25px;">
+                <img src="/assets/images/ser-icon12.png" alt="">
+              </div>
+              <div class="choose-us-content">
+                <h3 class="title" style="margin-bottom: 15px;">Quality Focused</h3>
+                <p>Rigorous testing, code reviews, and best practices ensure reliable solutions.</p>
+              </div>
+            </div>
+            <!-- Single Why Choose Us End -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Single Why Choose Us Start -->
+            <div class="single-why-choose-us text-center" style="margin-bottom: 40px; padding: 0 15px;">
+              <div class="choose-us-icon" style="margin-bottom: 25px;">
+                <img src="/assets/images/ser-icon11.png" alt="">
+              </div>
+              <div class="choose-us-content">
+                <h3 class="title" style="margin-bottom: 15px;">Long-term Support</h3>
+                <p>We're with you beyond launch, providing maintenance and continuous improvement.</p>
+              </div>
+            </div>
+            <!-- Single Why Choose Us End -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Why Work With Us End -->
+
+  <!-- Project Process Start -->
+  <div class="section techwix-project-section section-padding" style="padding-top: 100px; padding-bottom: 80px;">
+    <div class="container">
+      <div class="project-wrap">
+        <div class="section-title text-center" style="margin-bottom: 60px;">
+          <h3 class="sub-title">Our Process</h3>
+          <h2 class="title">How We Work With You</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <!-- Single Project Start -->
+            <div class="single-project text-center" style="margin-bottom: 40px; padding: 0 20px;">
+              <div class="project-number" style="width: 80px; height: 80px; line-height: 80px; border-radius: 50%; background: linear-gradient(135deg, #43BAFF 0%, #7141B1 100%); margin: 0 auto 30px; color: #fff; font-size: 36px; font-weight: 700;">
+                <span>01</span>
+              </div>
+              <div class="project-content">
+                <h3 class="title" style="font-size: 22px; margin-bottom: 15px; font-weight: 600;">Discovery</h3>
+                <p style="line-height: 1.7;">We listen to your needs, understand your goals, and analyze your requirements.</p>
+              </div>
+            </div>
+            <!-- Single Project End -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Single Project Start -->
+            <div class="single-project text-center" style="margin-bottom: 40px; padding: 0 20px;">
+              <div class="project-number" style="width: 80px; height: 80px; line-height: 80px; border-radius: 50%; background: linear-gradient(135deg, #43BAFF 0%, #7141B1 100%); margin: 0 auto 30px; color: #fff; font-size: 36px; font-weight: 700;">
+                <span>02</span>
+              </div>
+              <div class="project-content">
+                <h3 class="title" style="font-size: 22px; margin-bottom: 15px; font-weight: 600;">Strategy</h3>
+                <p style="line-height: 1.7;">We plan the architecture, tech stack, and roadmap for your solution.</p>
+              </div>
+            </div>
+            <!-- Single Project End -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Single Project Start -->
+            <div class="single-project text-center" style="margin-bottom: 40px; padding: 0 20px;">
+              <div class="project-number" style="width: 80px; height: 80px; line-height: 80px; border-radius: 50%; background: linear-gradient(135deg, #43BAFF 0%, #7141B1 100%); margin: 0 auto 30px; color: #fff; font-size: 36px; font-weight: 700;">
+                <span>03</span>
+              </div>
+              <div class="project-content">
+                <h3 class="title" style="font-size: 22px; margin-bottom: 15px; font-weight: 600;">Development</h3>
+                <p style="line-height: 1.7;">Our team builds your solution using agile sprints with regular updates.</p>
+              </div>
+            </div>
+            <!-- Single Project End -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Single Project Start -->
+            <div class="single-project text-center" style="margin-bottom: 40px; padding: 0 20px;">
+              <div class="project-number" style="width: 80px; height: 80px; line-height: 80px; border-radius: 50%; background: linear-gradient(135deg, #43BAFF 0%, #7141B1 100%); margin: 0 auto 30px; color: #fff; font-size: 36px; font-weight: 700;">
+                <span>04</span>
+              </div>
+              <div class="project-content">
+                <h3 class="title" style="font-size: 22px; margin-bottom: 15px; font-weight: 600;">Launch & Support</h3>
+                <p style="line-height: 1.7;">We deploy, monitor, and provide ongoing support for continuous success.</p>
+              </div>
+            </div>
+            <!-- Single Project End -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Project Process End -->
+
+  <CTA />
+  <Footer />
+</BaseLayout>
