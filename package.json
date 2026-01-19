@@ -9,8 +9,22 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^9.0.4",
     "@fortawesome/fontawesome-free": "^7.1.0",
+    "@popperjs/core": "^2.11.8",
+    "aos": "^2.3.4",
     "astro": "^5.16.9",
-    "bootstrap": "^5.3.8"
+    "bootstrap": "^5.3.8",
+    "counterup": "^1.0.2",
+    "jquery": "^3.7.1",
+    "magnific-popup": "^1.2.0",
+    "modernizr": "^3.13.1",
+    "swiper": "^12.0.3",
+    "waypoints": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/bootstrap": "^5.2.10",
+    "@types/jquery": "^3.5.33"
   }
 }

@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroAI from '../components/HeroAI.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<style>
+  /* Override testimonial styles to center content without image - compact design */
+  .single-testimonial-02 {
+    text-align: center;
+  }
+
+  .single-testimonial-02 .testimonial-content {
+    padding: 25px 30px !important;
+    text-align: center;
+  }
+
+  .single-testimonial-02 .testimonial-content img {
+    margin: 0 auto 15px;
+    display: block;
+    width: 40px;
+    height: auto;
+  }
+
+  .single-testimonial-02 .testimonial-content p {
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .testimonial-content-wrap-02 {
+    margin-top: 40px !important;
+  }
+
+  /* Service section margin */
+  .techwix-service-section-05 {
+    margin-top: 40px;
+  }
+
+  /* Ensure section title and description are properly aligned */
+  .techwix-service-section-05 .service-wrap .section-title {
+    text-align: center !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .techwix-service-section-05 .service-wrap .section-title .sub-title,
+  .techwix-service-section-05 .service-wrap .section-title .title {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Align service images */
+  .techwix-service-section-05 .service-item-04 .service-img {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .techwix-service-section-05 .service-item-04 .service-img img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* CTA button in service section */
+  .service-cta {
+    margin-top: 50px;
+    text-align: center;
+  }
+</style>
+
+<BaseLayout title="Data Engineering and AI Strategies - DevsDoc">
+  <Navbar />
+  <HeroAI />
+  
+  <!-- Service Section Start -->
+  <div class="section techwix-service-section-05">
+    <div class="container">
+      <!-- Service Wrap Start -->
+      <div class="service-wrap section-padding-02">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Our Data Engineering Services</h3>
+          <h2 class="title">Transform your data into actionable insights</h2>
+        </div>
+        <div class="service-content-wrap">
+          <div class="row">
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon13.png" alt="">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/data-engineering">Data Pipeline Development</a></h3>
+                  <p>Build robust, scalable data pipelines that process millions of records daily. We design efficient ETL/ELT processes for seamless data integration.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon14.png" alt="">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/data-engineering">AI Strategy Implementation</a></h3>
+                  <p>Leverage machine learning and AI to unlock business value. We develop custom AI solutions tailored to your specific business needs and objectives.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon15.png" alt="">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/data-engineering">Data Warehouse Design</a></h3>
+                  <p>Design and implement modern data warehouses with optimized storage and retrieval. Ensure data quality and governance across your organization.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon17.png" alt="">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/data-engineering">Real-time Analytics</a></h3>
+                  <p>Implement real-time data processing and analytics solutions. Get instant insights from your data streams to make faster, data-driven decisions.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service CTA Start -->
+        <div class="service-cta">
+          <a class="btn" href="/contact">Get Started Today</a>
+        </div>
+        <!-- Service CTA End -->
+      </div>
+      <!-- Service Wrap End -->
+    </div>
+  </div>
+  <!-- Service Section End -->
+  
+  <!-- Testimonial Section Start -->
+  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding" style="background-image: url(/assets/images/bg/testi-bg4.jpg);">
+    <div class="container">
+      <!-- Testimonial Wrap Start -->
+      <div class="testimonial-wrap-02">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Testimonial</h3>
+          <h2 class="title">Client success stories</h2>
+        </div>
+        <div class="testimonial-content-wrap-02">
+          <div class="swiper-container testimonial-02-active">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>DevsDoc helped us implement a robust data engineering solution that transformed how we handle and analyze our data. Their AI strategy expertise gave us a competitive edge in the market. The data pipelines they built process millions of records daily without any issues.</p>
+                    <div class="testimonial-author">
+                      <span class="name">Emily Rodriguez</span>
+                      <span class="designation"> / Data Director, Analytics Pro</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>The AI-driven business solutions from DevsDoc revolutionized our operations. They automated our data processes and implemented machine learning models that improved our decision-making by 40%. Their expertise in data engineering and AI is truly remarkable.</p>
+                    <div class="testimonial-author">
+                      <span class="name">Dr. James Wilson</span>
+                      <span class="designation"> / Chief Data Officer, DataFirst Corp</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>Working with DevsDoc on our data engineering project was a game-changer. They built scalable data infrastructure that handles our growing data volumes seamlessly. Their AI implementation helped us unlock insights we never knew existed. Highly recommend their services!</p>
+                    <div class="testimonial-author">
+                      <span class="name">Michael Thompson</span>
+                      <span class="designation"> / VP of Engineering, TechAnalytics</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+            </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial Wrap End -->
+    </div>
+  </div>
+  <!-- Testimonial Section End -->
+  
+  <Footer />
+</BaseLayout>
