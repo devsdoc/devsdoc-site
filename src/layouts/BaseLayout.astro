@@ -4,23 +4,135 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonical?: string;
+  noindex?: boolean;
 }
 
-const { title = 'DevsDoc - Technology IT Solutions', description = 'Technology IT Solutions Consultancy' } = Astro.props;
+const { 
+  title = 'DevsDoc - Web, Mobile, AI & Cloud Development Services', 
+  description = 'Professional software development company specializing in web applications, mobile apps, data engineering, AI solutions, and cloud infrastructure. Transform your ideas into scalable technology.', 
+  keywords = 'web development, mobile app development, data engineering, AI solutions, cloud computing, DevOps, software development, custom software, React, Node.js, Python, AWS',
+  ogImage = '/assets/images/og-image.jpg',
+  canonical,
+  noindex = false
+} = Astro.props;
+
+const currentUrl = canonical || Astro.url.href;
+const siteName = 'DevsDoc';
 ---
 
 <!doctype html>
 <html class="no-js" lang="en" style="color-scheme: light;">
   <head>
+    <!-- Essential Meta Tags -->
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="DevsDoc" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <link rel="canonical" href={currentUrl} />
+    
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    <!-- Favicon and Icons -->
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    
+    <!-- Theme and Color -->
     <meta name="color-scheme" content="light only" />
     <meta name="theme-color" content="#ffffff" />
-    <title>{title}</title>
+    
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevsDoc",
+        "url": "https://devsdoc.com",
+        "logo": "https://devsdoc.com/logo-dd-w.png",
+        "description": "Professional software development company specializing in web applications, mobile apps, data engineering, AI solutions, and cloud infrastructure.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/devsdoc",
+          "https://twitter.com/devsdoc"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-234-567-890",
+          "contactType": "Customer Service",
+          "email": "contact@devsdoc.com",
+          "availableLanguage": ["English"]
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "offerCount": "4",
+          "offers": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Web Development",
+                "description": "Custom web application development using modern technologies"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Mobile App Development",
+                "description": "Native and cross-platform mobile application development"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Data Engineering & AI",
+                "description": "Data pipeline development and AI strategy implementation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Cloud & DevOps",
+                "description": "Cloud infrastructure and DevOps implementation"
+              }
+            }
+          ]
+        }
+      }
+    </script>
 
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="/assets/css/plugins/all.min.css" />
