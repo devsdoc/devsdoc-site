@@ -16,7 +16,17 @@
                 <h2 class="title">Let's Build Something Amazing Together!</h2>
                 <p style="margin-top: 15px; color: #666;">Whether you need web development, mobile apps, data engineering, or cloud solutions - we're here to help transform your ideas into reality.</p>
               </header>
-              <form action="#" method="POST" id="contact-form" aria-label="Contact Form">
+              <!-- Success Message -->
+              <div id="form-success" class="alert alert-success" role="alert" style="display: none; margin-bottom: 30px; padding: 15px 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 6px; color: #155724;">
+                <strong>Success!</strong> <span id="success-message">Thank you for your message! We will respond within 24 hours.</span>
+              </div>
+              
+              <!-- Error Message -->
+              <div id="form-error" class="alert alert-danger" role="alert" style="display: none; margin-bottom: 30px; padding: 15px 20px; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 6px; color: #721c24;">
+                <strong>Error!</strong> <span id="error-message">Something went wrong. Please try again.</span>
+              </div>
+
+              <form action="/api/contact" method="POST" id="contact-form" aria-label="Contact Form">
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- Single Form Start -->
@@ -77,7 +87,12 @@
                   <div class="col-sm-12">
                     <!-- Single Form Start -->
                     <div class="form-btn">
-                      <button class="btn" type="submit">Send Message</button>
+                      <button class="btn" type="submit" id="submit-btn">
+                        <span id="submit-text">Send Message</span>
+                        <span id="submit-spinner" style="display: none; margin-left: 10px;">
+                          <span style="display: inline-block; width: 16px; height: 16px; border: 2px solid #ffffff; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite;"></span>
+                        </span>
+                      </button>
                     </div>
                     <!-- Single Form End -->
                   </div>
@@ -106,4 +121,81 @@
     white-space: nowrap;
     border-width: 0;
   }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  #submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const submitText = document.getElementById('submit-text') as HTMLSpanElement;
+    const submitSpinner = document.getElementById('submit-spinner') as HTMLSpanElement;
+    const successMessage = document.getElementById('form-success') as HTMLDivElement;
+    const errorMessage = document.getElementById('form-error') as HTMLDivElement;
+    const successText = document.getElementById('success-message') as HTMLSpanElement;
+    const errorText = document.getElementById('error-message') as HTMLSpanElement;
+
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Hide previous messages
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+      
+      // Disable submit button and show spinner
+      submitBtn.disabled = true;
+      submitText.style.display = 'none';
+      submitSpinner.style.display = 'inline-block';
+      
+      try {
+        const formData = new FormData(form);
+        
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          // Show success message
+          successText.textContent = data.message || 'Thank you for your message! We will respond within 24 hours.';
+          successMessage.style.display = 'block';
+          
+          // Reset form
+          form.reset();
+          
+          // Scroll to success message
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          // Show error message
+          errorText.textContent = data.error || 'Something went wrong. Please try again.';
+          errorMessage.style.display = 'block';
+          
+          // Scroll to error message
+          errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      } catch (error) {
+        // Show error message
+        errorText.textContent = 'Network error. Please check your connection and try again.';
+        errorMessage.style.display = 'block';
+        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } finally {
+        // Re-enable submit button and hide spinner
+        submitBtn.disabled = false;
+        submitText.style.display = 'inline';
+        submitSpinner.style.display = 'none';
+      }
+    });
+  });
+</script>

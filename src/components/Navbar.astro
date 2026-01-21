@@ -234,9 +234,9 @@
           <li><a href="#">Services</a>
             <ul class="sub-menu">
               <li><a href="/data-engineering">Data Engineering and AI Strategy</a></li>
-              <li><a href="/service">Mobile application Development</a></li>
-              <li><a href="/service">Web Development</a></li>
-              <li><a href="/service">Cloud and DevOps</a></li>
+              <li><a href="/web-application">Web Application Development</a></li>
+              <li><a href="/mobile-application">Mobile application Development</a></li>
+              <li><a href="/cloud-devops">Cloud and DevOps</a></li>
             </ul>
           </li>
           <li>
@@ -295,9 +295,9 @@
           <span class="menu-label">Services</span>
           <ul class="sub-menu">
             <li><a href="/data-engineering">Data Engineering and AI Strategy</a></li>
-            <li><a href="/service">Mobile application Development</a></li>
-            <li><a href="/service">Web Development</a></li>
-            <li><a href="/service">Cloud and DevOps</a></li>
+            <li><a href="/web-application">Web Application Development</a></li>
+            <li><a href="/mobile-application">Mobile application Development</a></li>
+            <li><a href="/cloud-devops">Cloud and DevOps</a></li>
           </ul>
         </li>
         <li>
@@ -325,13 +325,13 @@
   });
   
   // Force correct logo based on theme (light theme = logo-dd-w.png, dark = dd-logo.png)
-  // Since we're forcing light theme, always use logo-dd-w.png
+  // Since we're forcing light theme, always use logo-dd-w.png for navbar
+  // Footer always uses dd-logo.png
   document.addEventListener('DOMContentLoaded', function() {
     const navbarLogo = document.getElementById('navbar-logo');
     const mobileNavbarLogo = document.getElementById('mobile-navbar-logo');
-    const footerLogo = document.getElementById('footer-logo');
     
-    // Force light theme logo (logo-dd-w.png) since we're forcing light theme
+    // Force light theme logo (logo-dd-w.png) for navbar since we're forcing light theme
     if (navbarLogo) {
       navbarLogo.src = '/logo-dd-w.png';
       navbarLogo.setAttribute('srcset', '');
@@ -340,18 +340,19 @@
       mobileNavbarLogo.src = '/logo-dd-w.png';
       mobileNavbarLogo.setAttribute('srcset', '');
     }
-    if (footerLogo) {
-      footerLogo.src = '/logo-dd-w.png';
-      footerLogo.setAttribute('srcset', '');
-    }
     
-    // Override any dark mode logo selection
+    // Override any dark mode logo selection (but exclude footer which always uses dd-logo.png)
     const allLogos = document.querySelectorAll('img[src*="dd-logo"], img[src*="logo-dd"]');
     allLogos.forEach(function(logo) {
+      // Skip footer logo - it should always use dd-logo.png
+      if (logo.id === 'footer-logo' || logo.closest('.footer-section')) {
+        return;
+      }
+      
       if (logo.src.includes('dd-logo.png') && !logo.src.includes('logo-dd-w.png')) {
         // Only change if it's the dark logo and we're in light mode
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (!prefersDark || logo.closest('.offcanvas') || logo.closest('#header') || logo.closest('.footer-section')) {
+        if (!prefersDark || logo.closest('.offcanvas') || logo.closest('#header')) {
           logo.src = '/logo-dd-w.png';
         }
       }

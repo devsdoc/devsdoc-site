@@ -212,24 +212,34 @@ const siteName = 'DevsDoc';
     <!-- Logo Theme Script -->
     <script is:inline>
       // Ensure correct logo based on theme
-      // Since we're forcing light theme, always use logo-dd-w.png
+      // Since we're forcing light theme, always use logo-dd-w.png for navbar
+      // Footer always uses dd-logo.png
       document.addEventListener('DOMContentLoaded', function() {
-        // Force light theme logo everywhere
+        // Force light theme logo for navbar (but not footer)
         const logos = document.querySelectorAll('img[src*="dd-logo"], img[src*="logo-dd"]');
         logos.forEach(function(logo) {
-          // Always use light theme logo (logo-dd-w.png) since we're forcing light theme
+          // Skip footer logo - it should always use dd-logo.png
+          if (logo.id === 'footer-logo' || logo.closest('.footer-section')) {
+            return;
+          }
+          
+          // Always use light theme logo (logo-dd-w.png) for navbar since we're forcing light theme
           if (logo.src.includes('dd-logo.png') && !logo.src.includes('logo-dd-w.png')) {
             logo.src = logo.src.replace('dd-logo.png', 'logo-dd-w.png');
           }
-          // Ensure logo-dd-w.png is used
-          if (!logo.src.includes('logo-dd-w.png') && (logo.id === 'navbar-logo' || logo.id === 'mobile-navbar-logo' || logo.id === 'footer-logo')) {
+          // Ensure logo-dd-w.png is used for navbar logos
+          if (!logo.src.includes('logo-dd-w.png') && (logo.id === 'navbar-logo' || logo.id === 'mobile-navbar-logo')) {
             logo.src = '/logo-dd-w.png';
           }
         });
         
-        // Override picture source elements to always use light logo
+        // Override picture source elements to always use light logo (but not footer)
         const pictureElements = document.querySelectorAll('picture source[srcset*="dd-logo"]');
         pictureElements.forEach(function(source) {
+          // Skip footer picture elements
+          if (source.closest('.footer-section')) {
+            return;
+          }
           source.setAttribute('srcset', '/logo-dd-w.png');
         });
       });

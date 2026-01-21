@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroMobileApp from '../components/HeroMobileApp.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<style>
+  /* Override testimonial styles to center content without image - compact design */
+  .single-testimonial-02 {
+    text-align: center;
+  }
+
+  .single-testimonial-02 .testimonial-content {
+    padding: 25px 30px !important;
+    text-align: center;
+  }
+
+  .single-testimonial-02 .testimonial-content img {
+    margin: 0 auto 15px;
+    display: block;
+    width: 40px;
+    height: auto;
+  }
+
+  .single-testimonial-02 .testimonial-content p {
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .testimonial-content-wrap-02 {
+    margin-top: 40px !important;
+  }
+
+  /* Service section margin */
+  .techwix-service-section-05 {
+    margin-top: 40px;
+  }
+
+  /* Ensure section title and description are properly aligned */
+  .techwix-service-section-05 .service-wrap .section-title {
+    text-align: center !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .techwix-service-section-05 .service-wrap .section-title .sub-title,
+  .techwix-service-section-05 .service-wrap .section-title .title {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Align service images */
+  .techwix-service-section-05 .service-item-04 .service-img {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .techwix-service-section-05 .service-item-04 .service-img img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* CTA button in service section */
+  .service-cta {
+    margin-top: 50px;
+    text-align: center;
+  }
+</style>
+
+<BaseLayout 
+  title="Mobile Application Development Services | iOS & Android Apps - DevsDoc"
+  description="Expert mobile application development services. Build native iOS and Android apps, cross-platform solutions with React Native and Flutter. Custom mobile app development for your business."
+  keywords="mobile app development, iOS development, Android development, React Native, Flutter development, cross-platform apps, native mobile apps, mobile app solutions, app development services"
+  canonical="https://devsdoc.com/mobile-application"
+>
+  <Navbar />
+  <HeroMobileApp />
+  
+  <!-- Service Section Start -->
+  <div class="section techwix-service-section-05">
+    <div class="container">
+      <!-- Service Wrap Start -->
+      <div class="service-wrap section-padding-02">
+        <header class="section-title text-center">
+          <p class="sub-title">Our Mobile Application Services</p>
+          <h2 class="title">Comprehensive mobile solutions for iOS and Android</h2>
+        </header>
+        <div class="service-content-wrap">
+          <div class="row">
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon10.png" alt="iOS Development">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/mobile-application">iOS Development</a></h3>
+                  <p>Build native iOS applications with Swift and Objective-C. Create high-performance apps that leverage the full power of Apple's ecosystem and design guidelines.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon9.png" alt="Android Development">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/mobile-application">Android Development</a></h3>
+                  <p>Develop native Android applications with Kotlin and Java. Build scalable apps that work seamlessly across all Android devices and versions.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon11.png" alt="Cross-Platform Development">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/mobile-application">Cross-Platform Development</a></h3>
+                  <p>Build apps for both iOS and Android with React Native or Flutter. Save time and resources while delivering native-like performance and user experience.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon12.png" alt="Mobile App Maintenance">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/mobile-application">App Maintenance & Support</a></h3>
+                  <p>Keep your mobile apps updated, secure, and performing optimally. We provide ongoing maintenance, updates, and support for your mobile applications.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service CTA Start -->
+        <div class="service-cta">
+          <a class="btn" href="/contact">Get Started Today</a>
+        </div>
+        <!-- Service CTA End -->
+      </div>
+      <!-- Service Wrap End -->
+    </div>
+  </div>
+  <!-- Service Section End -->
+  
+  <!-- Testimonial Section Start -->
+  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding" style="background-image: url(/assets/images/bg/testi-bg4.jpg);">
+    <div class="container">
+      <!-- Testimonial Wrap Start -->
+      <div class="testimonial-wrap-02">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Testimonial</h3>
+          <h2 class="title">Client success stories</h2>
+        </div>
+        <div class="testimonial-content-wrap-02">
+          <div class="swiper-container testimonial-02-active">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>DevsDoc developed our mobile app for both iOS and Android, and the results exceeded our expectations. The app is fast, user-friendly, and has significantly increased our customer engagement. Their mobile development expertise is top-notch.</p>
+                    <div class="testimonial-author">
+                      <span class="name">Robert Kim</span>
+                      <span class="designation"> / Product Director, MobileFirst Solutions</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>The cross-platform mobile app DevsDoc built for us works flawlessly on both iOS and Android. They used React Native to deliver a native-like experience while saving us time and development costs. Highly recommended!</p>
+                    <div class="testimonial-author">
+                      <span class="name">Jennifer Lee</span>
+                      <span class="designation"> / CEO, AppInnovate</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>Working with DevsDoc on our mobile application was seamless. They delivered a beautiful, high-performance app that our users love. The app has improved our business operations and customer satisfaction significantly.</p>
+                    <div class="testimonial-author">
+                      <span class="name">Mark Thompson</span>
+                      <span class="designation"> / CTO, TechMobile Corp</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+            </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial Wrap End -->
+    </div>
+  </div>
+  <!-- Testimonial Section End -->
+  
+  <Footer />
+</BaseLayout>

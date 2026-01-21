@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroWebApp from '../components/HeroWebApp.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<style>
+  /* Override testimonial styles to center content without image - compact design */
+  .single-testimonial-02 {
+    text-align: center;
+  }
+
+  .single-testimonial-02 .testimonial-content {
+    padding: 25px 30px !important;
+    text-align: center;
+  }
+
+  .single-testimonial-02 .testimonial-content img {
+    margin: 0 auto 15px;
+    display: block;
+    width: 40px;
+    height: auto;
+  }
+
+  .single-testimonial-02 .testimonial-content p {
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .testimonial-content-wrap-02 {
+    margin-top: 40px !important;
+  }
+
+  /* Service section margin */
+  .techwix-service-section-05 {
+    margin-top: 40px;
+  }
+
+  /* Ensure section title and description are properly aligned */
+  .techwix-service-section-05 .service-wrap .section-title {
+    text-align: center !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .techwix-service-section-05 .service-wrap .section-title .sub-title,
+  .techwix-service-section-05 .service-wrap .section-title .title {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Align service images */
+  .techwix-service-section-05 .service-item-04 .service-img {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .techwix-service-section-05 .service-item-04 .service-img img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* CTA button in service section */
+  .service-cta {
+    margin-top: 50px;
+    text-align: center;
+  }
+</style>
+
+<BaseLayout 
+  title="Web Application Development Services | Custom Web Apps & Solutions - DevsDoc"
+  description="Expert web application development services. Build scalable, responsive web applications using React, Node.js, and modern frameworks. Custom web solutions for your business."
+  keywords="web application development, custom web apps, React development, Node.js development, full-stack web development, responsive web applications, web app solutions, modern web development"
+  canonical="https://devsdoc.com/web-application"
+>
+  <Navbar />
+  <HeroWebApp />
+  
+  <!-- Service Section Start -->
+  <div class="section techwix-service-section-05">
+    <div class="container">
+      <!-- Service Wrap Start -->
+      <div class="service-wrap section-padding-02">
+        <header class="section-title text-center">
+          <p class="sub-title">Our Web Application Services</p>
+          <h2 class="title">Comprehensive web solutions for modern businesses</h2>
+        </header>
+        <div class="service-content-wrap">
+          <div class="row">
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon9.png" alt="Frontend Development">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/web-application">Frontend Development</a></h3>
+                  <p>Build modern, responsive user interfaces with React, Vue.js, and Angular. Create engaging user experiences that drive conversions and user satisfaction.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon11.png" alt="Backend Development">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/web-application">Backend Development</a></h3>
+                  <p>Develop robust server-side applications with Node.js, Python, and Java. Build scalable APIs and microservices that power your web applications.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon10.png" alt="Full-Stack Development">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/web-application">Full-Stack Development</a></h3>
+                  <p>End-to-end web application development from frontend to backend. We handle every aspect of your web application stack for seamless integration.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon12.png" alt="Progressive Web Apps">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/web-application">Progressive Web Apps</a></h3>
+                  <p>Create Progressive Web Apps (PWAs) that work offline and provide native app-like experiences across all devices and platforms.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service CTA Start -->
+        <div class="service-cta">
+          <a class="btn" href="/contact">Get Started Today</a>
+        </div>
+        <!-- Service CTA End -->
+      </div>
+      <!-- Service Wrap End -->
+    </div>
+  </div>
+  <!-- Service Section End -->
+  
+  <!-- Testimonial Section Start -->
+  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding" style="background-image: url(/assets/images/bg/testi-bg4.jpg);">
+    <div class="container">
+      <!-- Testimonial Wrap Start -->
+      <div class="testimonial-wrap-02">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Testimonial</h3>
+          <h2 class="title">Client success stories</h2>
+        </div>
+        <div class="testimonial-content-wrap-02">
+          <div class="swiper-container testimonial-02-active">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>DevsDoc built our web application from scratch and delivered beyond our expectations. The application is fast, responsive, and handles our growing user base seamlessly. Their expertise in modern web technologies is outstanding.</p>
+                    <div class="testimonial-author">
+                      <span class="name">Sarah Johnson</span>
+                      <span class="designation"> / CTO, TechStart Inc</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>The web application DevsDoc developed for us transformed our business operations. It's user-friendly, scalable, and integrates perfectly with our existing systems. Their team's attention to detail and technical expertise is remarkable.</p>
+                    <div class="testimonial-author">
+                      <span class="name">David Chen</span>
+                      <span class="designation"> / Product Manager, InnovateCo</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>Working with DevsDoc on our web application was a game-changer. They delivered a modern, responsive application that our users love. The application performs flawlessly and has significantly improved our operational efficiency.</p>
+                    <div class="testimonial-author">
+                      <span class="name">Lisa Martinez</span>
+                      <span class="designation"> / CEO, Digital Solutions Group</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+            </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial Wrap End -->
+    </div>
+  </div>
+  <!-- Testimonial Section End -->
+  
+  <Footer />
+</BaseLayout>

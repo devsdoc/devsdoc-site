@@ -12,6 +12,7 @@
     "@astrojs/vercel": "^9.0.4",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "@popperjs/core": "^2.11.8",
+    "@sendgrid/mail": "^8.1.6",
     "aos": "^2.3.4",
     "astro": "^5.16.9",
     "bootstrap": "^5.3.8",

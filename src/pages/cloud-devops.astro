@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroCloudDevOps from '../components/HeroCloudDevOps.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<style>
+  /* Override testimonial styles to center content without image - compact design */
+  .single-testimonial-02 {
+    text-align: center;
+  }
+
+  .single-testimonial-02 .testimonial-content {
+    padding: 25px 30px !important;
+    text-align: center;
+  }
+
+  .single-testimonial-02 .testimonial-content img {
+    margin: 0 auto 15px;
+    display: block;
+    width: 40px;
+    height: auto;
+  }
+
+  .single-testimonial-02 .testimonial-content p {
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .testimonial-content-wrap-02 {
+    margin-top: 40px !important;
+  }
+
+  /* Service section margin */
+  .techwix-service-section-05 {
+    margin-top: 40px;
+  }
+
+  /* Ensure section title and description are properly aligned */
+  .techwix-service-section-05 .service-wrap .section-title {
+    text-align: center !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .techwix-service-section-05 .service-wrap .section-title .sub-title,
+  .techwix-service-section-05 .service-wrap .section-title .title {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Align service images */
+  .techwix-service-section-05 .service-item-04 .service-img {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .techwix-service-section-05 .service-item-04 .service-img img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* CTA button in service section */
+  .service-cta {
+    margin-top: 50px;
+    text-align: center;
+  }
+</style>
+
+<BaseLayout 
+  title="Cloud & DevOps Services | AWS, Azure, CI/CD Solutions - DevsDoc"
+  description="Expert Cloud and DevOps services. Cloud migration, infrastructure automation, CI/CD pipelines, containerization with Docker and Kubernetes. Scalable cloud solutions for your business."
+  keywords="cloud services, DevOps, AWS, Azure, GCP, cloud migration, CI/CD pipelines, Docker, Kubernetes, infrastructure automation, cloud architecture, DevOps consulting"
+  canonical="https://devsdoc.com/cloud-devops"
+>
+  <Navbar />
+  <HeroCloudDevOps />
+  
+  <!-- Service Section Start -->
+  <div class="section techwix-service-section-05">
+    <div class="container">
+      <!-- Service Wrap Start -->
+      <div class="service-wrap section-padding-02">
+        <header class="section-title text-center">
+          <p class="sub-title">Our Cloud & DevOps Services</p>
+          <h2 class="title">Comprehensive cloud infrastructure and automation solutions</h2>
+        </header>
+        <div class="service-content-wrap">
+          <div class="row">
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/counter-1.png" alt="Cloud Migration">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/cloud-devops">Cloud Migration</a></h3>
+                  <p>Seamlessly migrate your infrastructure to AWS, Azure, or GCP. We ensure zero downtime migrations with comprehensive planning and execution strategies.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/counter-2.png" alt="CI/CD Pipelines">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/cloud-devops">CI/CD Pipelines</a></h3>
+                  <p>Automate your software delivery with robust CI/CD pipelines using Jenkins, GitLab CI, GitHub Actions, or Azure DevOps for faster, reliable deployments.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/counter-3.png" alt="Containerization">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/cloud-devops">Containerization & Orchestration</a></h3>
+                  <p>Containerize applications with Docker and orchestrate with Kubernetes. Build scalable, portable applications that run consistently across environments.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item-04">
+                <div class="service-img">
+                  <img src="/assets/images/ser-icon11.png" alt="Infrastructure as Code">
+                </div>
+                <div class="service-content">
+                  <h3 class="title"><a href="/cloud-devops">Infrastructure as Code</a></h3>
+                  <p>Manage infrastructure with Terraform, Ansible, or CloudFormation. Automate provisioning, configuration, and management for consistent, repeatable deployments.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service CTA Start -->
+        <div class="service-cta">
+          <a class="btn" href="/contact">Get Started Today</a>
+        </div>
+        <!-- Service CTA End -->
+      </div>
+      <!-- Service Wrap End -->
+    </div>
+  </div>
+  <!-- Service Section End -->
+  
+  <!-- Testimonial Section Start -->
+  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding" style="background-image: url(/assets/images/bg/testi-bg4.jpg);">
+    <div class="container">
+      <!-- Testimonial Wrap Start -->
+      <div class="testimonial-wrap-02">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Testimonial</h3>
+          <h2 class="title">Client success stories</h2>
+        </div>
+        <div class="testimonial-content-wrap-02">
+          <div class="swiper-container testimonial-02-active">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>DevsDoc helped us migrate our entire infrastructure to AWS and set up automated CI/CD pipelines. Our deployment time reduced by 80%, and we can now deploy multiple times per day with confidence. Their DevOps expertise is exceptional.</p>
+                    <div class="testimonial-author">
+                      <span class="name">Alexandra Brown</span>
+                      <span class="designation"> / VP of Engineering, CloudTech Solutions</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>The Kubernetes cluster and CI/CD pipeline DevsDoc implemented transformed our development workflow. We went from weekly deployments to multiple deployments per day. Their cloud architecture design is top-tier.</p>
+                    <div class="testimonial-author">
+                      <span class="name">Daniel Park</span>
+                      <span class="designation"> / CTO, ScaleUp Inc</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+              <div class="swiper-slide">
+                <!-- Single Testimonial Start -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-content">
+                    <img src="/assets/images/testi-icon.png" alt="">
+                    <p>Working with DevsDoc on our cloud migration and DevOps transformation was a game-changer. They automated our infrastructure, improved our security posture, and reduced our operational costs by 40%. Highly recommended!</p>
+                    <div class="testimonial-author">
+                      <span class="name">Rachel Green</span>
+                      <span class="designation"> / Director of Operations, TechScale Corp</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Testimonial End -->
+              </div>
+            </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial Wrap End -->
+    </div>
+  </div>
+  <!-- Testimonial Section End -->
+  
+  <Footer />
+</BaseLayout>
