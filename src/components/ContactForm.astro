@@ -2,7 +2,7 @@
 ---
 
 <!-- Contact Start -->
-<div class="section techwix-contact-section techwix-contact-section-02 techwix-contact-section-03 section-padding-02">
+<section class="section techwix-contact-section techwix-contact-section-02 techwix-contact-section-03 section-padding-02" aria-label="Contact Form">
   <div class="container">
     <!-- Contact Wrap Start -->
     <div class="contact-wrap">
@@ -11,38 +11,42 @@
           <!-- Contact Form Start -->
           <div class="contact-form">
             <div class="contact-form-wrap">
-              <div class="heading-wrap text-center">
-                <span class="sub-title">Get in Touch</span>
-                <h3 class="title">Let's Build Something Amazing Together!</h3>
+              <header class="heading-wrap text-center">
+                <p class="sub-title">Get in Touch</p>
+                <h2 class="title">Let's Build Something Amazing Together!</h2>
                 <p style="margin-top: 15px; color: #666;">Whether you need web development, mobile apps, data engineering, or cloud solutions - we're here to help transform your ideas into reality.</p>
-              </div>
-              <form action="#" method="POST" id="contact-form">
+              </header>
+              <form action="#" method="POST" id="contact-form" aria-label="Contact Form">
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- Single Form Start -->
                     <div class="single-form">
-                      <input type="text" name="name" placeholder="Your Name *" required>
+                      <label for="contact-name" class="visually-hidden">Your Name</label>
+                      <input type="text" id="contact-name" name="name" placeholder="Your Name *" required aria-required="true">
                     </div>
                     <!-- Single Form End -->
                   </div>
                   <div class="col-sm-6">
                     <!-- Single Form Start -->
                     <div class="single-form">
-                      <input type="email" name="email" placeholder="Your Email *" required>
+                      <label for="contact-email" class="visually-hidden">Your Email</label>
+                      <input type="email" id="contact-email" name="email" placeholder="Your Email *" required aria-required="true">
                     </div>
                     <!-- Single Form End -->
                   </div>
                   <div class="col-sm-6">
                     <!-- Single Form Start -->
                     <div class="single-form">
-                      <input type="text" name="company" placeholder="Company Name">
+                      <label for="contact-company" class="visually-hidden">Company Name</label>
+                      <input type="text" id="contact-company" name="company" placeholder="Company Name">
                     </div>
                     <!-- Single Form End -->
                   </div>
                   <div class="col-sm-6">
                     <!-- Single Form Start -->
                     <div class="single-form">
-                      <select name="service" class="form-control" style="height: 60px; border: 1px solid #e3e3e3; padding: 0 20px;">
+                      <label for="contact-service" class="visually-hidden">Select Service</label>
+                      <select id="contact-service" name="service" class="form-control" style="height: 60px; border: 1px solid #e3e3e3; padding: 0 20px;" aria-required="true">
                         <option value="">Select Service *</option>
                         <option value="web-development">Web Development</option>
                         <option value="mobile-development">Mobile App Development</option>
@@ -57,14 +61,16 @@
                   <div class="col-sm-12">
                     <!-- Single Form Start -->
                     <div class="single-form">
-                      <input type="text" name="subject" placeholder="Subject *" required>
+                      <label for="contact-subject" class="visually-hidden">Subject</label>
+                      <input type="text" id="contact-subject" name="subject" placeholder="Subject *" required aria-required="true">
                     </div>
                     <!-- Single Form End -->
                   </div>
                   <div class="col-sm-12">
                     <!-- Single Form Start -->
                     <div class="single-form">
-                      <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
+                      <label for="contact-message" class="visually-hidden">Message</label>
+                      <textarea id="contact-message" name="message" placeholder="Tell us about your project..." rows="5" required aria-required="true"></textarea>
                     </div>
                     <!-- Single Form End -->
                   </div>
@@ -85,5 +91,19 @@
     </div>
     <!-- Contact Wrap End -->
   </div>
-</div>
+</section>
 <!-- Contact End -->
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>

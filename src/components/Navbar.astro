@@ -85,36 +85,60 @@
     color: #000000 !important;
     font-weight: 600;
     margin-bottom: 4px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 30px;
+    transition: color 0.3s ease;
+  }
+  
+  .offcanvas-menu .main-menu > li.services-menu-item > span.menu-label:hover {
+    color: #43BAFF !important;
+  }
+  
+  /* Arrow indicator for services menu */
+  .offcanvas-menu .main-menu > li.services-menu-item > span.menu-label::after {
+    content: '\f107'; /* Chevron down icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    color: #43BAFF;
+  }
+  
+  .offcanvas-menu .main-menu > li.services-menu-item.submenu-closed > span.menu-label::after {
+    transform: translateY(-50%) rotate(-90deg);
   }
   
   .offcanvas-menu .sub-menu {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: block !important;
     background-color: #f8f9fa;
     border-radius: 8px;
     margin-top: 8px;
-    padding: 12px 0;
-    max-height: none !important;
-    overflow: visible !important;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease;
+    max-height: 500px; /* Default: open */
+    opacity: 1;
   }
   
-  /* Services submenu - always visible */
+  /* Services submenu - toggleable */
   .offcanvas-menu .main-menu > li.services-menu-item .sub-menu {
-    display: block !important;
-    max-height: none !important;
     padding: 12px 0 !important;
     margin-top: 8px !important;
   }
   
-  /* Remove arrow indicator since submenu is always open */
-  .offcanvas-menu .main-menu > li > a.has-submenu {
-    cursor: default;
-  }
-  
-  .offcanvas-menu .main-menu > li > a.has-submenu::after {
-    display: none;
+  /* Closed state */
+  .offcanvas-menu .main-menu > li.services-menu-item.submenu-closed .sub-menu {
+    max-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    opacity: 0;
   }
   
   .offcanvas-menu .sub-menu li {
@@ -194,7 +218,12 @@
     <!-- Header Wrap Start  -->
     <div class="header-wrap">
       <div class="header-logo">
-        <a href="/"><img src="/logo-dd-w.png" alt="DevsDoc - Web, Mobile, AI & Cloud Development Services"></a>
+        <a href="/" aria-label="DevsDoc Home">
+          <picture>
+            <source srcset="/dd-logo.png" media="(prefers-color-scheme: dark)">
+            <img src="/logo-dd-w.png" alt="DevsDoc - Web, Mobile, AI & Cloud Development Services" id="navbar-logo">
+          </picture>
+        </a>
       </div>
 
       <div class="header-menu d-none d-lg-block">
@@ -244,7 +273,12 @@
   <div class="offcanvas-header">
     <!-- Offcanvas Logo Start -->
     <div class="offcanvas-logo">
-      <a href="/"><img src="/logo-dd-w.png" alt="DevsDoc Logo"></a>
+      <a href="/" aria-label="DevsDoc Home">
+        <picture>
+          <source srcset="/dd-logo.png" media="(prefers-color-scheme: dark)">
+          <img src="/logo-dd-w.png" alt="DevsDoc Logo" id="mobile-navbar-logo">
+        </picture>
+      </a>
     </div>
     <!-- Offcanvas Logo End -->
     <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i class="flaticon-close"></i></button>
@@ -290,6 +324,58 @@
     }
   });
   
-  // Services submenu is always open - no toggle needed
-  // Submenu links are directly clickable
+  // Force correct logo based on theme (light theme = logo-dd-w.png, dark = dd-logo.png)
+  // Since we're forcing light theme, always use logo-dd-w.png
+  document.addEventListener('DOMContentLoaded', function() {
+    const navbarLogo = document.getElementById('navbar-logo');
+    const mobileNavbarLogo = document.getElementById('mobile-navbar-logo');
+    const footerLogo = document.getElementById('footer-logo');
+    
+    // Force light theme logo (logo-dd-w.png) since we're forcing light theme
+    if (navbarLogo) {
+      navbarLogo.src = '/logo-dd-w.png';
+      navbarLogo.setAttribute('srcset', '');
+    }
+    if (mobileNavbarLogo) {
+      mobileNavbarLogo.src = '/logo-dd-w.png';
+      mobileNavbarLogo.setAttribute('srcset', '');
+    }
+    if (footerLogo) {
+      footerLogo.src = '/logo-dd-w.png';
+      footerLogo.setAttribute('srcset', '');
+    }
+    
+    // Override any dark mode logo selection
+    const allLogos = document.querySelectorAll('img[src*="dd-logo"], img[src*="logo-dd"]');
+    allLogos.forEach(function(logo) {
+      if (logo.src.includes('dd-logo.png') && !logo.src.includes('logo-dd-w.png')) {
+        // Only change if it's the dark logo and we're in light mode
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (!prefersDark || logo.closest('.offcanvas') || logo.closest('#header') || logo.closest('.footer-section')) {
+          logo.src = '/logo-dd-w.png';
+        }
+      }
+    });
+  });
+  
+  // Mobile menu submenu toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const servicesMenuItem = document.querySelector('.offcanvas-menu .main-menu > li.services-menu-item');
+    
+    if (servicesMenuItem) {
+      const menuLabel = servicesMenuItem.querySelector('span.menu-label');
+      
+      if (menuLabel) {
+        // By default, submenu is open (no submenu-closed class)
+        // Add click handler to toggle
+        menuLabel.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Toggle the submenu-closed class
+          servicesMenuItem.classList.toggle('submenu-closed');
+        });
+      }
+    }
+  });
 </script>
