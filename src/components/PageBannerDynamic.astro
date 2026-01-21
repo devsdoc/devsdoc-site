@@ -7,57 +7,159 @@ interface Props {
 const { title, currentPage } = Astro.props;
 ---
 
+<style>
+  .modern-page-banner {
+    position: relative;
+    padding: 140px 0 100px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    overflow: hidden;
+  }
+  
+  .modern-page-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(67, 186, 255, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(113, 65, 177, 0.3) 0%, transparent 50%);
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  .modern-page-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.3;
+  }
+  
+  .banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  .banner-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    letter-spacing: -1px;
+    animation: fadeInUp 0.8s ease;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .modern-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    animation: fadeInUp 1s ease;
+  }
+  
+  .modern-breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .modern-breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .modern-breadcrumb-item a:hover {
+    color: #ffffff;
+    transform: translateX(2px);
+  }
+  
+  .modern-breadcrumb-item.active {
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+  }
+  
+  @media (max-width: 991px) {
+    .modern-page-banner {
+      padding: 120px 0 80px;
+    }
+    
+    .banner-title {
+      font-size: 42px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .modern-page-banner {
+      padding: 100px 0 60px;
+    }
+    
+    .banner-title {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    
+    .modern-breadcrumb-item {
+      font-size: 14px;
+    }
+  }
+</style>
+
 <!-- Page Banner Start -->
-<div class="section page-banner-section" style="background-image: url(/assets/images/bg/page-banner.jpg);">
-  <div class="shape-1">
-    <svg xmlns="http://www.w3.org/2000/svg" width="944px" height="894px">
-      <defs>
-        <linearGradient id="PSgrad_0" x1="88.295%" x2="0%" y1="0%" y2="46.947%">
-          <stop offset="0%" stop-color="rgb(67,186,255)" stop-opacity="1" />
-          <stop offset="100%" stop-color="rgb(113,65,177)" stop-opacity="1" />
-        </linearGradient>
-      </defs>
-      <path fill-rule="evenodd" fill="rgb(43, 142, 254)" d="M39.612,410.76 L467.344,29.824 C516.51,-13.476 590.638,-9.93 633.938,39.613 L914.192,317.344 C957.492,366.50 953.109,440.637 904.402,483.938 L476.671,864.191 C427.964,907.492 353.376,903.109 310.76,854.402 L29.823,576.670 C-13.477,527.963 -9.94,453.376 39.612,410.76 Z" />
-      <path fill="url(#PSgrad_0)" d="M39.612,410.76 L467.344,29.824 C516.51,-13.476 590.638,-9.93 633.938,39.613 L914.192,317.344 C957.492,366.50 953.109,440.637 904.402,483.938 L476.671,864.191 C427.964,907.492 353.376,903.109 310.76,854.402 L29.823,576.670 C-13.477,527.963 -9.94,453.376 39.612,410.76 Z" />
-    </svg>
-  </div>
-  <div class="shape-2">
-    <svg xmlns="http://www.w3.org/2000/svg" width="726.5px" height="726.5px">
-      <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" opacity="0.302" fill="none" d="M28.14,285.269 L325.37,21.217 C358.860,-8.851 410.655,-5.808 440.723,28.14 L704.777,325.36 C734.846,358.859 731.802,410.654 697.979,440.722 L400.955,704.776 C367.132,734.844 315.338,731.802 285.269,697.978 L21.216,400.954 C-8.852,367.132 -5.808,315.337 28.14,285.269 Z" />
-    </svg>
-  </div>
-  <div class="shape-3">
-    <svg xmlns="http://www.w3.org/2000/svg" width="515px" height="515px">
-      <defs>
-        <linearGradient id="PSgrad_0" x1="0%" x2="89.879%" y1="0%" y2="43.837%">
-          <stop offset="0%" stop-color="rgb(67,186,255)" stop-opacity="1" />
-          <stop offset="100%" stop-color="rgb(113,65,177)" stop-opacity="1" />
-        </linearGradient>
-      </defs>
-      <path fill-rule="evenodd" fill="rgb(43, 142, 254)" d="M19.529,202.280 L230.531,14.698 C254.559,-6.661 291.353,-4.498 312.714,19.528 L500.295,230.531 C521.656,254.558 519.493,291.353 495.466,312.713 L284.463,500.295 C260.436,521.655 223.641,519.492 202.281,495.465 L14.699,284.462 C-6.660,260.435 -4.498,223.640 19.529,202.280 Z" />
-      <path fill="url(#PSgrad_0)" d="M19.529,202.280 L230.531,14.698 C254.559,-6.661 291.353,-4.498 312.714,19.528 L500.295,230.531 C521.656,254.558 519.493,291.353 495.466,312.713 L284.463,500.295 C260.436,521.655 223.641,519.492 202.281,495.465 L14.699,284.462 C-6.660,260.435 -4.498,223.640 19.529,202.280 Z" />
-    </svg>
-  </div>
-  <div class="shape-4">
-    <svg xmlns="http://www.w3.org/2000/svg" width="972.5px" height="970.5px">
-      <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M38.245,381.102 L435.258,28.158 C480.467,-12.32 549.697,-7.964 589.888,37.244 L942.832,434.257 C983.23,479.466 978.955,548.697 933.746,588.888 L536.733,941.832 C491.524,982.23 422.293,977.955 382.103,932.745 L29.158,535.732 C-11.32,490.523 -6.963,421.293 38.245,381.102 Z" />
-    </svg>
-  </div>
+<div class="section modern-page-banner">
   <div class="container">
-    <div class="page-banner-wrap">
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Page Banner Content Start -->
-          <div class="page-banner text-center">
-            <h2 class="title">{title}</h2>
-            <ul class="breadcrumb justify-content-center">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">{currentPage}</li>
-            </ul>
-          </div>
-          <!-- Page Banner Content End -->
-        </div>
-      </div>
+    <div class="banner-content">
+      <h1 class="banner-title">{title}</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="modern-breadcrumb">
+          <li class="modern-breadcrumb-item">
+            <a href="/">Home</a>
+          </li>
+          <li class="breadcrumb-separator">
+            <i class="fas fa-chevron-right"></i>
+          </li>
+          <li class="modern-breadcrumb-item active" aria-current="page">
+            {currentPage}
+          </li>
+        </ol>
+      </nav>
     </div>
   </div>
 </div>

@@ -1,6 +1,194 @@
 ---
 ---
 
+<style>
+  /* Force light theme for navbar and mobile sidebar */
+  #header,
+  #header *,
+  .header-section,
+  .header-section * {
+    color-scheme: light only !important;
+  }
+  
+  /* Mobile sidebar (offcanvas) - match desktop navbar styling */
+  .offcanvas {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-right: 1px solid #e9ecef !important;
+  }
+  
+  .offcanvas-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e9ecef !important;
+    padding: 20px 24px !important;
+  }
+  
+  .offcanvas-body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 24px !important;
+  }
+  
+  .offcanvas-logo img {
+    max-height: 40px;
+  }
+  
+  .close-btn {
+    background: transparent !important;
+    border: none !important;
+    color: #000000 !important;
+    font-size: 24px !important;
+    padding: 0 !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .close-btn:hover {
+    color: #43BAFF !important;
+    transform: rotate(90deg) !important;
+  }
+  
+  /* Mobile menu styling - match desktop */
+  .offcanvas-menu .main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .offcanvas-menu .main-menu > li {
+    margin-bottom: 8px;
+  }
+  
+  .offcanvas-menu .main-menu > li > a,
+  .offcanvas-menu .main-menu > li > span.menu-label {
+    color: #000000 !important;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 0;
+    display: block;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .offcanvas-menu .main-menu > li > a:hover,
+  .offcanvas-menu .main-menu > li.active-menu > a {
+    color: #43BAFF !important;
+    padding-left: 10px;
+  }
+  
+  .offcanvas-menu .main-menu > li.services-menu-item > span.menu-label {
+    color: #000000 !important;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .offcanvas-menu .sub-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block !important;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 8px;
+    padding: 12px 0;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  /* Services submenu - always visible */
+  .offcanvas-menu .main-menu > li.services-menu-item .sub-menu {
+    display: block !important;
+    max-height: none !important;
+    padding: 12px 0 !important;
+    margin-top: 8px !important;
+  }
+  
+  /* Remove arrow indicator since submenu is always open */
+  .offcanvas-menu .main-menu > li > a.has-submenu {
+    cursor: default;
+  }
+  
+  .offcanvas-menu .main-menu > li > a.has-submenu::after {
+    display: none;
+  }
+  
+  .offcanvas-menu .sub-menu li {
+    margin-bottom: 4px;
+  }
+  
+  .offcanvas-menu .sub-menu li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .offcanvas-menu .sub-menu li a {
+    color: #333 !important;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 12px 20px;
+    display: block;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    font-weight: 500;
+  }
+  
+  .offcanvas-menu .sub-menu li a:hover,
+  .offcanvas-menu .sub-menu li.active a {
+    color: #43BAFF !important;
+    padding-left: 24px;
+    border-left-color: #43BAFF;
+    background-color: rgba(67, 186, 255, 0.05);
+  }
+  
+  /* Mobile toggle button styling */
+  .header-toggle button {
+    background: transparent !important;
+    border: none !important;
+    padding: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    cursor: pointer !important;
+  }
+  
+  .header-toggle button span {
+    width: 25px;
+    height: 3px;
+    background-color: #000000 !important;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  .header-toggle button:hover span {
+    background-color: #43BAFF !important;
+  }
+  
+  /* Override any dark mode on mobile sidebar */
+  @media (prefers-color-scheme: dark) {
+    .offcanvas,
+    .offcanvas-header,
+    .offcanvas-body,
+    .offcanvas-menu,
+    .offcanvas-menu * {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    
+    .close-btn {
+      color: #000000 !important;
+    }
+    
+    .offcanvas-menu .main-menu > li > a {
+      color: #000000 !important;
+    }
+  }
+</style>
+
 <div id="header" class="section header-section">
   <div class="container">
     <!-- Header Wrap Start  -->
@@ -68,19 +256,9 @@
       <ul class="main-menu">
         <li class="active-menu">
           <a href="/">Home</a>
-          <ul class="sub-menu">
-            <li class="active"><a href="/">Home Main</a></li>
-            <li><a href="/index-2">AI Solutions</a></li>
-            <li><a href="/index-3">Cyber Security</a></li>
-            <li><a href="/index-4">IT Solutions</a></li>
-            <li><a href="/index-5">Software Company</a></li>
-            <li><a href="/index-6">IT Agency</a></li>
-          </ul>
         </li>
-        <li>
-          <a href="/about">About Us</a>
-        </li>
-        <li><a href="#">Services</a>
+        <li class="services-menu-item">
+          <span class="menu-label">Services</span>
           <ul class="sub-menu">
             <li><a href="/data-engineering">Data Engineering and AI Strategy</a></li>
             <li><a href="/service">Mobile application Development</a></li>
@@ -88,12 +266,8 @@
             <li><a href="/service">Cloud and DevOps</a></li>
           </ul>
         </li>
-        <li><a href="#">Blog</a>
-          <ul class="sub-menu">
-            <li><a href="/blog">Blog Grid</a></li>
-            <li><a href="/blog-standard">Blog List</a></li>
-            <li><a href="/blog-details">Blog Single</a></li>
-          </ul>
+        <li>
+          <a href="/about">About us</a>
         </li>
         <li><a href="/contact">Contact</a></li>
       </ul>
@@ -115,4 +289,7 @@
       }
     }
   });
+  
+  // Services submenu is always open - no toggle needed
+  // Submenu links are directly clickable
 </script>

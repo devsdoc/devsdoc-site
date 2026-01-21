@@ -149,39 +149,63 @@ const siteName = 'DevsDoc';
     
     <!-- Force Light Mode CSS -->
     <style>
-      /* Force light mode for the entire site */
+      /* Force light mode for the entire site - STRONG OVERRIDES */
       :root {
-        color-scheme: light only;
+        color-scheme: light only !important;
+        --bs-body-bg: #ffffff !important;
+        --bs-body-color: #000000 !important;
       }
       
       html {
-        color-scheme: light !important;
+        color-scheme: light only !important;
         background-color: #ffffff !important;
       }
       
       body {
-        color-scheme: light !important;
+        color-scheme: light only !important;
         background-color: #ffffff !important;
         color: #000000 !important;
       }
       
-      /* Override any dark mode media queries */
+      /* Override any dark mode media queries - STRONG */
       @media (prefers-color-scheme: dark) {
         html,
-        body {
-          color-scheme: light !important;
+        body,
+        body *,
+        .main-wrapper,
+        .main-wrapper * {
+          color-scheme: light only !important;
           background-color: #ffffff !important;
           color: #000000 !important;
         }
         
-        * {
-          color-scheme: light !important;
+        /* Force light backgrounds on all elements */
+        div, section, header, nav, main, footer, article, aside {
+          background-color: #ffffff !important;
+          color: #000000 !important;
         }
       }
       
       /* Ensure all elements respect light mode */
-      * {
-        color-scheme: light;
+      *,
+      *::before,
+      *::after {
+        color-scheme: light only !important;
+      }
+      
+      /* Override Bootstrap dark mode classes if any */
+      .bg-dark,
+      .bg-dark * {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+      }
+      
+      /* Force light theme on offcanvas/sidebar */
+      .offcanvas,
+      .offcanvas-header,
+      .offcanvas-body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
       }
     </style>
   </head>

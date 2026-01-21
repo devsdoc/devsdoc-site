@@ -1,48 +1,273 @@
 ---
 ---
 
+<style>
+  .modern-contact-info {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  }
+  
+  .contact-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #e9ecef;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #43BAFF 0%, #7141B1 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(67, 186, 255, 0.15);
+    border-color: #43BAFF;
+  }
+  
+  .contact-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .contact-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #43BAFF 0%, #7141B1 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  
+  .contact-card:hover .contact-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(67, 186, 255, 0.3);
+  }
+  
+  .contact-icon-wrapper i {
+    font-size: 32px;
+    color: #ffffff;
+    z-index: 1;
+  }
+  
+  .contact-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-card:hover .contact-card-title {
+    color: #43BAFF;
+  }
+  
+  .contact-card-text {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .contact-card-link {
+    color: #43BAFF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 8px;
+  }
+  
+  .contact-card-link:hover {
+    color: #7141B1;
+    transform: translateX(5px);
+  }
+  
+  .contact-card-link i {
+    margin-left: 5px;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-card-link:hover i {
+    transform: translateX(3px);
+  }
+  
+  .booking-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .btn-google-calendar {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #43BAFF 0%, #7141B1 100%);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(67, 186, 255, 0.3);
+    border: none;
+  }
+  
+  .btn-google-calendar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 186, 255, 0.4);
+    color: white;
+  }
+  
+  .btn-google-calendar i {
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  .btn-contact-form {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border: 2px solid #43BAFF;
+    color: #43BAFF;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+  
+  .btn-contact-form:hover {
+    background: #43BAFF;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .btn-contact-form i {
+    margin-left: 8px;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 991px) {
+    .contact-card {
+      margin-bottom: 30px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .modern-contact-info {
+      padding: 60px 0;
+    }
+    
+    .contact-card {
+      padding: 30px 20px;
+    }
+    
+    .contact-icon-wrapper {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon-wrapper i {
+      font-size: 28px;
+    }
+    
+    .booking-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .btn-google-calendar,
+    .btn-contact-form {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 20px;
+    }
+  }
+</style>
+
 <!-- Contact Info Start -->
-<div class="section contact-info-section section-padding-02">
+<div class="section modern-contact-info">
   <div class="container">
     <!-- Contact Info Wrap Start -->
     <div class="contact-info-wrap">
       <div class="row">
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-4 col-md-6">
           <!--Single Contact Info Start -->
-          <div class="single-contact-info text-center">
-            <div class="info-icon">
-              <img src="/assets/images/counter-1.png" alt="">
+          <div class="contact-card">
+            <div class="contact-icon-wrapper">
+              <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="info-content">
-              <h5 class="title">Schedule a Call</h5>
-              <p>Book a consultation</p>
-              <p>to discuss your project</p>
+              <h3 class="contact-card-title">Schedule a Call</h3>
+              <p class="contact-card-text">Book a free consultation to discuss your project and explore how we can help transform your ideas into reality.</p>
+              <div class="booking-buttons">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Consultation+with+DevsDoc&dates=20240120T100000Z/20240120T110000Z&details=Free+consultation+to+discuss+your+project.+Please+provide+your+preferred+time+in+the+description.&location=Online&add=iamsaimsohail@gmail.com" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="btn-google-calendar">
+                  <i class="fab fa-google"></i>
+                  Book on Google Calendar
+                </a>
+                <a href="/contact#contact-form" 
+                   class="btn-contact-form">
+                  Contact Form
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
             </div>
           </div>
           <!--Single Contact Info End -->
         </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-4 col-md-6">
           <!--Single Contact Info Start -->
-          <div class="single-contact-info text-center">
-            <div class="info-icon">
-              <img src="/assets/images/info-2.png" alt="">
+          <div class="contact-card">
+            <div class="contact-icon-wrapper">
+              <i class="fas fa-envelope"></i>
             </div>
             <div class="info-content">
-              <h5 class="title">Email Us</h5>
-              <p>contact@devsdoc.com</p>
+              <h3 class="contact-card-title">Email Us</h3>
+              <p class="contact-card-text">Send us an email and we'll get back to you within 24 hours. We're here to answer all your questions.</p>
+              <a href="mailto:contact@devsdoc.com" class="contact-card-link">
+                contact@devsdoc.com <i class="fas fa-external-link-alt"></i>
+              </a>
             </div>
           </div>
           <!--Single Contact Info End -->
         </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-4 col-md-6">
           <!--Single Contact Info Start -->
-          <div class="single-contact-info text-center">
-            <div class="info-icon">
-              <img src="/assets/images/info-3.png" alt="">
+          <div class="contact-card">
+            <div class="contact-icon-wrapper">
+              <i class="fas fa-code"></i>
             </div>
             <div class="info-content">
-              <h5 class="title">Our Services</h5>
-              <p>Web, Mobile, AI & Cloud Solutions</p>
+              <h3 class="contact-card-title">Our Services</h3>
+              <p class="contact-card-text">Web Development, Mobile Apps, Data Engineering, AI Solutions, and Cloud Infrastructure - we've got you covered.</p>
+              <a href="/about" class="contact-card-link">
+                Learn More <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
           <!--Single Contact Info End -->
