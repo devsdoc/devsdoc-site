@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import WhatsAppWidget from '../components/WhatsAppWidget.astro';
 
 interface Props {
   title?: string;
@@ -62,9 +63,15 @@ const siteName = 'DevsDoc';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     
-    <!-- Theme and Color -->
+    <!-- Theme and Color - Force Light Mode -->
     <meta name="color-scheme" content="light only" />
     <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#ffffff" />
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <!-- Android Chrome -->
+    <meta name="mobile-web-app-capable" content="yes" />
     
     <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
@@ -147,7 +154,7 @@ const siteName = 'DevsDoc';
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="/assets/css/style.css" />
     
-    <!-- Force Light Mode CSS -->
+    <!-- Force Light Mode CSS - Comprehensive Override -->
     <style>
       /* Force light mode for the entire site - STRONG OVERRIDES */
       :root {
@@ -167,20 +174,47 @@ const siteName = 'DevsDoc';
         color: #000000 !important;
       }
       
-      /* Override any dark mode media queries - STRONG */
+      /* Override any dark mode media queries - STRONG - Works on all devices */
       @media (prefers-color-scheme: dark) {
         html,
         body,
         body *,
         .main-wrapper,
-        .main-wrapper * {
+        .main-wrapper *,
+        #header,
+        #header *,
+        header,
+        header *,
+        nav,
+        nav *,
+        main,
+        main *,
+        footer,
+        footer *,
+        section,
+        section *,
+        div,
+        div *,
+        article,
+        article *,
+        aside,
+        aside * {
           color-scheme: light only !important;
           background-color: #ffffff !important;
           color: #000000 !important;
         }
         
         /* Force light backgrounds on all elements */
-        div, section, header, nav, main, footer, article, aside {
+        div, section, header, nav, main, footer, article, aside, p, h1, h2, h3, h4, h5, h6, span, a, li, ul, ol {
+          background-color: #ffffff !important;
+          color: #000000 !important;
+        }
+        
+        /* Override any dark mode specific classes */
+        .bg-dark,
+        .bg-dark *,
+        [class*="dark"],
+        [class*="dark"] * {
           background-color: #ffffff !important;
           color: #000000 !important;
         }
@@ -195,7 +229,9 @@ const siteName = 'DevsDoc';
       
       /* Override Bootstrap dark mode classes if any */
       .bg-dark,
-      .bg-dark * {
+      .bg-dark *,
+      .dark,
+      .dark * {
         background-color: #ffffff !important;
         color: #000000 !important;
       }
@@ -203,46 +239,108 @@ const siteName = 'DevsDoc';
       /* Force light theme on offcanvas/sidebar */
       .offcanvas,
       .offcanvas-header,
-      .offcanvas-body {
+      .offcanvas-body,
+      .offcanvas * {
         background-color: #ffffff !important;
         color: #000000 !important;
       }
+      
+      /* Mobile browser specific overrides */
+      @media screen and (max-width: 768px) {
+        html,
+        body,
+        body * {
+          color-scheme: light only !important;
+          background-color: #ffffff !important;
+          color: #000000 !important;
+        }
+      }
     </style>
     
-    <!-- Logo Theme Script -->
+    <!-- Early Script to Override matchMedia - Runs Before Page Load -->
+    <script is:inline>
+      // Override matchMedia for prefers-color-scheme BEFORE any scripts run
+      (function() {
+        const originalMatchMedia = window.matchMedia;
+        window.matchMedia = function(query) {
+          if (query.includes('prefers-color-scheme: dark')) {
+            // Return a MediaQueryList that always reports light mode
+            const mql = originalMatchMedia.call(this, query);
+            const originalMatches = mql.matches;
+            Object.defineProperty(mql, 'matches', {
+              get: function() { return false; },
+              configurable: true
+            });
+            // Override addListener/removeListener to prevent dark mode detection
+            if (mql.addEventListener) {
+              const originalAddListener = mql.addEventListener.bind(mql);
+              mql.addEventListener = function(type, listener) {
+                if (type === 'change') {
+                  // Don't call listener since we're forcing light mode
+                  return;
+                }
+                return originalAddListener(type, listener);
+              };
+            }
+            return mql;
+          }
+          return originalMatchMedia.call(this, query);
+        };
+      })();
+    </script>
+    
+    <!-- Logo Theme Script - Force Light Theme -->
     <script is:inline>
       // Ensure correct logo based on theme
       // Since we're forcing light theme, always use logo-dd-w.png for navbar
       // Footer always uses dd-logo.png
-      document.addEventListener('DOMContentLoaded', function() {
-        // Force light theme logo for navbar (but not footer)
-        const logos = document.querySelectorAll('img[src*="dd-logo"], img[src*="logo-dd"]');
-        logos.forEach(function(logo) {
-          // Skip footer logo - it should always use dd-logo.png
-          if (logo.id === 'footer-logo' || logo.closest('.footer-section')) {
-            return;
-          }
+      (function() {
+        function forceLightThemeLogos() {
+          // Force light theme logo for navbar (but not footer)
+          const logos = document.querySelectorAll('img[src*="dd-logo"], img[src*="logo-dd"]');
+          logos.forEach(function(logo) {
+            // Skip footer logo - it should always use dd-logo.png
+            if (logo.id === 'footer-logo' || logo.closest('.footer-section')) {
+              return;
+            }
+            
+            // Always use light theme logo (logo-dd-w.png) for navbar since we're forcing light theme
+            if (logo.src.includes('dd-logo.png') && !logo.src.includes('logo-dd-w.png')) {
+              logo.src = logo.src.replace('dd-logo.png', 'logo-dd-w.png');
+            }
+            // Ensure logo-dd-w.png is used for navbar logos
+            if (!logo.src.includes('logo-dd-w.png') && (logo.id === 'navbar-logo' || logo.id === 'mobile-navbar-logo')) {
+              logo.src = '/logo-dd-w.png';
+            }
+          });
           
-          // Always use light theme logo (logo-dd-w.png) for navbar since we're forcing light theme
-          if (logo.src.includes('dd-logo.png') && !logo.src.includes('logo-dd-w.png')) {
-            logo.src = logo.src.replace('dd-logo.png', 'logo-dd-w.png');
-          }
-          // Ensure logo-dd-w.png is used for navbar logos
-          if (!logo.src.includes('logo-dd-w.png') && (logo.id === 'navbar-logo' || logo.id === 'mobile-navbar-logo')) {
-            logo.src = '/logo-dd-w.png';
-          }
-        });
+          // Override picture source elements to always use light logo (but not footer)
+          const pictureElements = document.querySelectorAll('picture source[srcset*="dd-logo"]');
+          pictureElements.forEach(function(source) {
+            // Skip footer picture elements
+            if (source.closest('.footer-section')) {
+              return;
+            }
+            // Remove dark mode source or change it to light logo
+            if (source.getAttribute('media') && source.getAttribute('media').includes('prefers-color-scheme: dark')) {
+              source.remove();
+            } else {
+              source.setAttribute('srcset', '/logo-dd-w.png');
+            }
+          });
+        }
         
-        // Override picture source elements to always use light logo (but not footer)
-        const pictureElements = document.querySelectorAll('picture source[srcset*="dd-logo"]');
-        pictureElements.forEach(function(source) {
-          // Skip footer picture elements
-          if (source.closest('.footer-section')) {
-            return;
-          }
-          source.setAttribute('srcset', '/logo-dd-w.png');
-        });
-      });
+        // Run immediately if DOM is ready, otherwise wait
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', forceLightThemeLogos);
+        } else {
+          forceLightThemeLogos();
+        }
+        
+        // Also run after a short delay to catch dynamically loaded content
+        setTimeout(forceLightThemeLogos, 100);
+        setTimeout(forceLightThemeLogos, 500);
+      })();
     </script>
   </head>
   <body>
@@ -265,6 +363,9 @@ const siteName = 'DevsDoc';
         </svg>
       </div>
       <!-- back to top end -->
+
+      <!-- WhatsApp Widget -->
+      <WhatsAppWidget />
     </div>
 
     <!-- Vendor JS -->

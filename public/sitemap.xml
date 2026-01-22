@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://devsdoc.com/</loc>
-    <lastmod>2024-01-20</lastmod>
+    <lastmod>2024-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- About Page -->
   <url>
     <loc>https://devsdoc.com/about</loc>
-    <lastmod>2024-01-20</lastmod>
+    <lastmod>2024-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -21,15 +21,39 @@
   <!-- Contact Page -->
   <url>
     <loc>https://devsdoc.com/contact</loc>
-    <lastmod>2024-01-20</lastmod>
+    <lastmod>2024-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- Web Application Development Page -->
+  <url>
+    <loc>https://devsdoc.com/web-application</loc>
+    <lastmod>2024-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Mobile Application Development Page -->
+  <url>
+    <loc>https://devsdoc.com/mobile-application</loc>
+    <lastmod>2024-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <!-- Data Engineering & AI Page -->
   <url>
     <loc>https://devsdoc.com/data-engineering</loc>
-    <lastmod>2024-01-20</lastmod>
+    <lastmod>2024-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Cloud & DevOps Page -->
+  <url>
+    <loc>https://devsdoc.com/cloud-devops</loc>
+    <lastmod>2024-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

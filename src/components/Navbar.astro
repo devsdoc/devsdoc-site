@@ -85,32 +85,14 @@
     color: #000000 !important;
     font-weight: 600;
     margin-bottom: 4px;
-    cursor: pointer;
+    cursor: default;
     user-select: none;
-    position: relative;
-    padding-right: 30px;
+    padding-right: 0;
     transition: color 0.3s ease;
   }
   
   .offcanvas-menu .main-menu > li.services-menu-item > span.menu-label:hover {
     color: #43BAFF !important;
-  }
-  
-  /* Arrow indicator for services menu */
-  .offcanvas-menu .main-menu > li.services-menu-item > span.menu-label::after {
-    content: '\f107'; /* Chevron down icon */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.3s ease;
-    color: #43BAFF;
-  }
-  
-  .offcanvas-menu .main-menu > li.services-menu-item.submenu-closed > span.menu-label::after {
-    transform: translateY(-50%) rotate(-90deg);
   }
   
   .offcanvas-menu .sub-menu {
@@ -126,19 +108,13 @@
     opacity: 1;
   }
   
-  /* Services submenu - toggleable */
+  /* Services submenu - always open */
   .offcanvas-menu .main-menu > li.services-menu-item .sub-menu {
     padding: 12px 0 !important;
     margin-top: 8px !important;
-  }
-  
-  /* Closed state */
-  .offcanvas-menu .main-menu > li.services-menu-item.submenu-closed .sub-menu {
-    max-height: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-top: 0 !important;
-    opacity: 0;
+    max-height: 500px !important;
+    opacity: 1 !important;
+    display: block !important;
   }
   
   .offcanvas-menu .sub-menu li {
@@ -219,10 +195,7 @@
     <div class="header-wrap">
       <div class="header-logo">
         <a href="/" aria-label="DevsDoc Home">
-          <picture>
-            <source srcset="/dd-logo.png" media="(prefers-color-scheme: dark)">
-            <img src="/logo-dd-w.png" alt="DevsDoc - Web, Mobile, AI & Cloud Development Services" id="navbar-logo">
-          </picture>
+          <img src="/logo-dd-w.png" alt="DevsDoc - Web, Mobile, AI & Cloud Development Services" id="navbar-logo">
         </a>
       </div>
 
@@ -274,10 +247,7 @@
     <!-- Offcanvas Logo Start -->
     <div class="offcanvas-logo">
       <a href="/" aria-label="DevsDoc Home">
-        <picture>
-          <source srcset="/dd-logo.png" media="(prefers-color-scheme: dark)">
-          <img src="/logo-dd-w.png" alt="DevsDoc Logo" id="mobile-navbar-logo">
-        </picture>
+        <img src="/logo-dd-w.png" alt="DevsDoc Logo" id="mobile-navbar-logo">
       </a>
     </div>
     <!-- Offcanvas Logo End -->
@@ -324,58 +294,65 @@
     }
   });
   
-  // Force correct logo based on theme (light theme = logo-dd-w.png, dark = dd-logo.png)
-  // Since we're forcing light theme, always use logo-dd-w.png for navbar
+  // Force light theme logos - always use logo-dd-w.png for navbar
   // Footer always uses dd-logo.png
-  document.addEventListener('DOMContentLoaded', function() {
-    const navbarLogo = document.getElementById('navbar-logo');
-    const mobileNavbarLogo = document.getElementById('mobile-navbar-logo');
-    
-    // Force light theme logo (logo-dd-w.png) for navbar since we're forcing light theme
-    if (navbarLogo) {
-      navbarLogo.src = '/logo-dd-w.png';
-      navbarLogo.setAttribute('srcset', '');
-    }
-    if (mobileNavbarLogo) {
-      mobileNavbarLogo.src = '/logo-dd-w.png';
-      mobileNavbarLogo.setAttribute('srcset', '');
-    }
-    
-    // Override any dark mode logo selection (but exclude footer which always uses dd-logo.png)
-    const allLogos = document.querySelectorAll('img[src*="dd-logo"], img[src*="logo-dd"]');
-    allLogos.forEach(function(logo) {
-      // Skip footer logo - it should always use dd-logo.png
-      if (logo.id === 'footer-logo' || logo.closest('.footer-section')) {
-        return;
+  (function() {
+    function forceLightLogos() {
+      const navbarLogo = document.getElementById('navbar-logo');
+      const mobileNavbarLogo = document.getElementById('mobile-navbar-logo');
+      
+      // Force light theme logo (logo-dd-w.png) for navbar since we're forcing light theme
+      if (navbarLogo) {
+        navbarLogo.src = '/logo-dd-w.png';
+        navbarLogo.setAttribute('srcset', '');
+      }
+      if (mobileNavbarLogo) {
+        mobileNavbarLogo.src = '/logo-dd-w.png';
+        mobileNavbarLogo.setAttribute('srcset', '');
       }
       
-      if (logo.src.includes('dd-logo.png') && !logo.src.includes('logo-dd-w.png')) {
-        // Only change if it's the dark logo and we're in light mode
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (!prefersDark || logo.closest('.offcanvas') || logo.closest('#header')) {
-          logo.src = '/logo-dd-w.png';
+      // Override any dark mode logo selection (but exclude footer which always uses dd-logo.png)
+      const allLogos = document.querySelectorAll('img[src*="dd-logo"], img[src*="logo-dd"]');
+      allLogos.forEach(function(logo) {
+        // Skip footer logo - it should always use dd-logo.png
+        if (logo.id === 'footer-logo' || logo.closest('.footer-section')) {
+          return;
         }
-      }
-    });
-  });
+        
+        // Always force light logo for navbar elements
+        if (logo.closest('.offcanvas') || logo.closest('#header') || logo.id === 'navbar-logo' || logo.id === 'mobile-navbar-logo') {
+          if (logo.src.includes('dd-logo.png') && !logo.src.includes('logo-dd-w.png')) {
+            logo.src = '/logo-dd-w.png';
+          }
+        }
+      });
+    }
+    
+    // Run immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', forceLightLogos);
+    } else {
+      forceLightLogos();
+    }
+    
+    // Also run after a short delay to catch dynamically loaded content
+    setTimeout(forceLightLogos, 100);
+    setTimeout(forceLightLogos, 500);
+  })();
   
-  // Mobile menu submenu toggle functionality
+  // Mobile menu - services menu always open (no toggle functionality)
   document.addEventListener('DOMContentLoaded', function() {
     const servicesMenuItem = document.querySelector('.offcanvas-menu .main-menu > li.services-menu-item');
     
     if (servicesMenuItem) {
-      const menuLabel = servicesMenuItem.querySelector('span.menu-label');
+      // Remove any closed state class to ensure it's always open
+      servicesMenuItem.classList.remove('submenu-closed');
       
+      // Remove click handler - no toggle functionality
+      const menuLabel = servicesMenuItem.querySelector('span.menu-label');
       if (menuLabel) {
-        // By default, submenu is open (no submenu-closed class)
-        // Add click handler to toggle
-        menuLabel.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          // Toggle the submenu-closed class
-          servicesMenuItem.classList.toggle('submenu-closed');
-        });
+        // Make it non-clickable (no toggle)
+        menuLabel.style.pointerEvents = 'none';
       }
     }
   });

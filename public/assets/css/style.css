@@ -9108,13 +9108,14 @@ textarea:-ms-input-placeholder {
   width: 45px;
   cursor: pointer;
   display: block;
-  border-radius: 50px;
+  border-radius: 50%;
   box-shadow: inset 0 0 0 2px rgba(0, 93, 224, 0.2);
   opacity: 0;
   visibility: hidden;
   transform: translateX(130%);
   z-index: 99;
   transition: all 200ms linear;
+  overflow: hidden;
 }
 
 .progress-wrap::after {
@@ -9161,4 +9162,59 @@ textarea:-ms-input-placeholder {
 
 .progress-wrap-3 svg.progress-circle path {
   stroke: #ff5538;
+}
+
+/* Mobile responsive styles for scroll to top button */
+@media only screen and (max-width: 768px) {
+  .progress-wrap {
+    right: 15px;
+    bottom: 15px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px rgba(0, 93, 224, 0.2);
+  }
+
+  .progress-wrap::after {
+    line-height: 40px;
+    font-size: 16px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .progress-wrap svg.progress-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .progress-wrap svg.progress-circle path {
+    stroke-width: 3;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .progress-wrap {
+    right: 12px;
+    bottom: 12px;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px rgba(0, 93, 224, 0.2);
+  }
+
+  .progress-wrap::after {
+    line-height: 36px;
+    font-size: 14px;
+    height: 36px;
+    width: 36px;
+  }
+
+  .progress-wrap svg.progress-circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .progress-wrap svg.progress-circle path {
+    stroke-width: 2.5;
+  }
 }
