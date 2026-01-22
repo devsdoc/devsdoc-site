@@ -1,0 +1,385 @@
+---
+---
+
+<style>
+  .faq-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  }
+
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: #ffffff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 8px 25px rgba(67, 186, 255, 0.1);
+    border-color: #43BAFF;
+  }
+
+  .faq-item.active {
+    border-color: #43BAFF;
+    box-shadow: 0 8px 25px rgba(67, 186, 255, 0.15);
+  }
+
+  .faq-question {
+    padding: 25px 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+
+  .faq-question:hover {
+    background: rgba(67, 186, 255, 0.02);
+  }
+
+  .faq-question h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+    flex: 1;
+    padding-right: 20px;
+    line-height: 1.5;
+  }
+
+  .faq-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #43BAFF 0%, #7141B1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    background: linear-gradient(135deg, #7141B1 0%, #43BAFF 100%);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 30px;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 30px 25px 30px;
+  }
+
+  .faq-answer p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin: 0;
+    padding-top: 15px;
+  }
+
+  .faq-answer ul {
+    margin: 15px 0 0 0;
+    padding-left: 25px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .faq-answer ul li {
+    margin-bottom: 8px;
+  }
+
+  .faq-answer ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+    .faq-section {
+      padding: 60px 0;
+    }
+
+    .faq-question {
+      padding: 20px;
+    }
+
+    .faq-question h3 {
+      font-size: 16px;
+      padding-right: 15px;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 20px 20px 20px;
+    }
+
+    .faq-answer {
+      padding: 0 20px;
+    }
+  }
+</style>
+
+<!-- FAQ Section Start -->
+<section class="section faq-section" aria-label="Frequently Asked Questions">
+  <div class="container">
+    <div class="faq-container">
+      <header class="section-title text-center" style="margin-bottom: 60px;">
+        <h3 class="sub-title">FAQ</h3>
+        <h2 class="title">Frequently Asked Questions</h2>
+        <p style="font-size: 16px; color: #666; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          Find answers to common questions about our services, process, and how we work with clients.
+        </p>
+      </header>
+
+      <div class="faq-list">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What services does DevsDoc offer?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We offer comprehensive software development services including:
+            </p>
+            <ul>
+              <li><strong>Web Application Development:</strong> Custom web apps using modern frameworks like React, Node.js, and Python</li>
+              <li><strong>Mobile App Development:</strong> Native iOS, Android, and cross-platform solutions</li>
+              <li><strong>Data Engineering & AI Strategy:</strong> Data pipelines, AI implementation, and analytics solutions</li>
+              <li><strong>Cloud & DevOps:</strong> Cloud migration, CI/CD pipelines, and infrastructure automation</li>
+            </ul>
+            <p style="margin-top: 15px;">
+              We provide end-to-end solutions from concept to deployment and ongoing support.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What technologies and frameworks do you use?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We use modern, industry-standard technologies:
+            </p>
+            <ul>
+              <li><strong>Frontend:</strong> React, Vue.js, Angular, Next.js, TypeScript</li>
+              <li><strong>Backend:</strong> Node.js, Python (Django, Flask), Ruby, .NET</li>
+              <li><strong>Mobile:</strong> React Native, Flutter, Swift, Kotlin</li>
+              <li><strong>Cloud:</strong> AWS, Azure, Google Cloud Platform</li>
+              <li><strong>Databases:</strong> PostgreSQL, MongoDB, MySQL, Redis</li>
+              <li><strong>DevOps:</strong> Docker, Kubernetes, Jenkins, GitHub Actions</li>
+            </ul>
+            <p style="margin-top: 15px;">
+              We choose technologies based on your project requirements, scalability needs, and team expertise.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>Do you provide ongoing support and maintenance?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes! We offer comprehensive support and maintenance services:
+            </p>
+            <ul>
+              <li><strong>24/7 Support:</strong> Round-the-clock assistance for critical issues</li>
+              <li><strong>Regular Updates:</strong> Security patches, feature enhancements, and bug fixes</li>
+              <li><strong>Performance Monitoring:</strong> Proactive monitoring and optimization</li>
+              <li><strong>Scalability Management:</strong> Infrastructure scaling as your business grows</li>
+              <li><strong>Technical Support:</strong> Help desk and dedicated support channels</li>
+            </ul>
+            <p style="margin-top: 15px;">
+              Support packages are customizable based on your needs. We ensure your software remains secure, updated, and performing optimally.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>Can you work with our existing team or integrate with our systems?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Absolutely! We excel at collaboration and integration:
+            </p>
+            <ul>
+              <li><strong>Team Integration:</strong> We work seamlessly with your in-house developers</li>
+              <li><strong>API Integration:</strong> Connect with your existing systems and third-party services</li>
+              <li><strong>Legacy System Integration:</strong> Modernize and integrate with older systems</li>
+              <li><strong>Code Handoff:</strong> Complete documentation and knowledge transfer</li>
+              <li><strong>Agile Collaboration:</strong> Daily standups, sprint planning, and regular communication</li>
+            </ul>
+            <p style="margin-top: 15px;">
+              We adapt to your workflow and ensure smooth collaboration throughout the project lifecycle.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What is your development process?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We follow an agile, client-focused development process:
+            </p>
+            <ul>
+              <li><strong>Discovery:</strong> Understanding your business needs, goals, and technical requirements</li>
+              <li><strong>Design:</strong> Creating wireframes, prototypes, and design systems</li>
+              <li><strong>Development:</strong> Building features with agile sprints and regular updates</li>
+              <li><strong>Testing:</strong> Quality assurance, bug fixing, and performance optimization</li>
+              <li><strong>Deployment:</strong> Automated deployment to production with zero downtime</li>
+              <li><strong>Support:</strong> Ongoing maintenance, updates, and 24/7 support</li>
+            </ul>
+            <p style="margin-top: 15px;">
+              We provide regular demos, maintain transparent communication, and ensure you're involved at every stage.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 9 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What is included in your development services?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Our comprehensive development services include:
+            </p>
+            <ul>
+              <li><strong>Full Development:</strong> Frontend, backend, database design, and API development</li>
+              <li><strong>UI/UX Design:</strong> User interface and experience design</li>
+              <li><strong>Testing & QA:</strong> Comprehensive testing and quality assurance</li>
+              <li><strong>Deployment:</strong> Cloud setup, CI/CD pipeline, and production deployment</li>
+              <li><strong>Documentation:</strong> Technical documentation and user guides</li>
+              <li><strong>Training:</strong> Team training and knowledge transfer</li>
+              <li><strong>Support:</strong> Post-launch support and maintenance options</li>
+            </ul>
+            <p style="margin-top: 15px;">
+              We deliver complete, production-ready solutions tailored to your needs.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 10 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>How do you ensure code quality and best practices?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We maintain high standards through:
+            </p>
+            <ul>
+              <li><strong>Code Reviews:</strong> Peer reviews and senior developer oversight</li>
+              <li><strong>Testing:</strong> Unit tests, integration tests, and automated testing</li>
+              <li><strong>Best Practices:</strong> Following industry standards and coding conventions</li>
+              <li><strong>Documentation:</strong> Comprehensive code documentation and comments</li>
+              <li><strong>Version Control:</strong> Git-based workflow with proper branching strategies</li>
+              <li><strong>Performance Optimization:</strong> Code optimization and performance monitoring</li>
+              <li><strong>Security:</strong> Security audits and vulnerability assessments</li>
+            </ul>
+            <p style="margin-top: 15px;">
+              We deliver clean, maintainable, and scalable code that follows industry best practices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ Section End -->
+
+<script is:inline>
+  function toggleFAQ(element) {
+    const faqItem = element.closest('.faq-item');
+    const isActive = faqItem.classList.contains('active');
+    
+    // Close all FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('active');
+    });
+    
+    // Open clicked item if it wasn't active
+    if (!isActive) {
+      faqItem.classList.add('active');
+    }
+  }
+
+  // Keyboard accessibility
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.setAttribute('role', 'button');
+      question.setAttribute('tabindex', '0');
+      question.setAttribute('aria-expanded', 'false');
+      
+      question.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFAQ(this);
+        }
+      });
+    });
+
+    // Update aria-expanded when FAQ is toggled
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          const faqItem = mutation.target;
+          const question = faqItem.querySelector('.faq-question');
+          if (question) {
+            question.setAttribute('aria-expanded', faqItem.classList.contains('active') ? 'true' : 'false');
+          }
+        }
+      });
+    });
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+      observer.observe(item, { attributes: true });
+    });
+  });
+</script>
