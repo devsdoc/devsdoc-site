@@ -85,8 +85,8 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <BaseLayout 
-  title="Web Application Development Services | Custom Web Apps & Solutions - DevsDoc"
-  description="Expert web application development services. Build scalable, responsive web applications using React, Node.js, and modern frameworks. Custom web solutions for your business."
+  title="Custom Web Application Development | React & Node.js - DevsDoc"
+  description="Expert custom web application development using React, Node.js, and modern frameworks. Build scalable, responsive web apps that drive business growth. Free consultation available."
   keywords="web application development, custom web apps, React development, Node.js development, full-stack web development, responsive web applications, web app solutions, modern web development"
   canonical="https://devsdoc.com/web-application"
 >
@@ -100,7 +100,7 @@ import Footer from '../components/Footer.astro';
       <div class="service-wrap section-padding-02">
         <header class="section-title text-center">
           <p class="sub-title">Our Web Application Services</p>
-          <h2 class="title">Comprehensive web solutions for modern businesses</h2>
+          <h2 class="title">Comprehensive Web Application Solutions for Modern Businesses</h2>
         </header>
         <div class="service-content-wrap">
           <div class="row">
@@ -108,7 +108,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon9.png" alt="Frontend Development">
+                  <img src="/assets/images/ser-icon9.png" alt="Frontend web development services icon - React Vue Angular" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/web-application">Frontend Development</a></h3>
@@ -121,7 +121,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon11.png" alt="Backend Development">
+                  <img src="/assets/images/ser-icon11.png" alt="Backend web development services icon - Node.js Python" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/web-application">Backend Development</a></h3>
@@ -134,7 +134,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon10.png" alt="Full-Stack Development">
+                  <img src="/assets/images/ser-icon10.png" alt="Full-stack web development services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/web-application">Full-Stack Development</a></h3>
@@ -147,7 +147,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon12.png" alt="Progressive Web Apps">
+                  <img src="/assets/images/ser-icon12.png" alt="Progressive Web App development services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/web-application">Progressive Web Apps</a></h3>
@@ -235,6 +235,78 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
   <!-- Testimonial Section End -->
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devsdoc.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Web Application",
+        "item": "https://devsdoc.com/web-application"
+      }
+    ]
+  })} />
+  
+  <!-- Service Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Web Application Development",
+    "provider": {
+      "@type": "Organization",
+      "name": "DevsDoc",
+      "url": "https://devsdoc.com"
+    },
+    "areaServed": "Worldwide",
+    "description": "Expert custom web application development using React, Node.js, and modern frameworks",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Development Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Frontend Development",
+            "description": "Build modern, responsive user interfaces with React, Vue.js, and Angular"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Backend Development",
+            "description": "Develop robust server-side applications with Node.js, Python, and Java"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Full-Stack Development",
+            "description": "End-to-end web application development from frontend to backend"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Progressive Web Apps",
+            "description": "Create PWAs that work offline and provide native app-like experiences"
+          }
+        }
+      ]
+    }
+  })} />
   
   <Footer />
 </BaseLayout>

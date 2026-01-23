@@ -85,8 +85,8 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <BaseLayout 
-  title="Data Engineering & AI Strategy Services | Machine Learning & Data Pipelines - DevsDoc"
-  description="Expert data engineering and AI strategy services. Build scalable data pipelines, implement machine learning models, design data warehouses, and enable real-time analytics for data-driven decisions."
+  title="Data Engineering & AI Services | ML Solutions - DevsDoc"
+  description="Expert data engineering and AI strategy services. Build scalable data pipelines, implement machine learning models, and enable real-time analytics. Transform data into insights."
   keywords="data engineering, AI strategy, machine learning, data pipelines, ETL development, data warehouse design, real-time analytics, AI implementation, data science, big data solutions"
   canonical="https://devsdoc.com/data-engineering"
 >
@@ -100,7 +100,7 @@ import Footer from '../components/Footer.astro';
       <div class="service-wrap section-padding-02">
         <header class="section-title text-center">
           <p class="sub-title">Our Data Engineering Services</p>
-          <h2 class="title">Transform your data into actionable insights</h2>
+          <h2 class="title">Transform Your Data Into Actionable Business Insights</h2>
         </header>
         <div class="service-content-wrap">
           <div class="row">
@@ -108,7 +108,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon13.png" alt="">
+                  <img src="/assets/images/ser-icon13.png" alt="Data pipeline development services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/data-engineering">Data Pipeline Development</a></h3>
@@ -121,7 +121,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon14.png" alt="">
+                  <img src="/assets/images/ser-icon14.png" alt="AI strategy implementation services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/data-engineering">AI Strategy Implementation</a></h3>
@@ -134,7 +134,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon15.png" alt="">
+                  <img src="/assets/images/ser-icon15.png" alt="Data warehouse design services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/data-engineering">Data Warehouse Design</a></h3>
@@ -147,7 +147,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon17.png" alt="">
+                  <img src="/assets/images/ser-icon17.png" alt="Real-time analytics services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/data-engineering">Real-time Analytics</a></h3>
@@ -235,6 +235,78 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
   <!-- Testimonial Section End -->
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devsdoc.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Data Engineering",
+        "item": "https://devsdoc.com/data-engineering"
+      }
+    ]
+  })} />
+  
+  <!-- Service Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Data Engineering & AI Strategy",
+    "provider": {
+      "@type": "Organization",
+      "name": "DevsDoc",
+      "url": "https://devsdoc.com"
+    },
+    "areaServed": "Worldwide",
+    "description": "Expert data engineering and AI strategy services including scalable data pipelines and machine learning models",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Data Engineering & AI Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Data Pipeline Development",
+            "description": "Build robust, scalable data pipelines that process millions of records daily"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Strategy Implementation",
+            "description": "Leverage machine learning and AI to unlock business value"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Data Warehouse Design",
+            "description": "Design and implement modern data warehouses with optimized storage and retrieval"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Real-time Analytics",
+            "description": "Implement real-time data processing and analytics solutions"
+          }
+        }
+      ]
+    }
+  })} />
   
   <Footer />
 </BaseLayout>

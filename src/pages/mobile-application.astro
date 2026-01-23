@@ -85,8 +85,8 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <BaseLayout 
-  title="Mobile Application Development Services | iOS & Android Apps - DevsDoc"
-  description="Expert mobile application development services. Build native iOS and Android apps, cross-platform solutions with React Native and Flutter. Custom mobile app development for your business."
+  title="Mobile App Development | iOS & Android Apps - DevsDoc"
+  description="Expert mobile app development for iOS and Android. Native and cross-platform solutions with React Native and Flutter. Custom mobile apps that drive business growth. Get started today."
   keywords="mobile app development, iOS development, Android development, React Native, Flutter development, cross-platform apps, native mobile apps, mobile app solutions, app development services"
   canonical="https://devsdoc.com/mobile-application"
 >
@@ -100,7 +100,7 @@ import Footer from '../components/Footer.astro';
       <div class="service-wrap section-padding-02">
         <header class="section-title text-center">
           <p class="sub-title">Our Mobile Application Services</p>
-          <h2 class="title">Comprehensive mobile solutions for iOS and Android</h2>
+          <h2 class="title">Comprehensive Mobile Application Solutions for iOS and Android</h2>
         </header>
         <div class="service-content-wrap">
           <div class="row">
@@ -108,7 +108,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon10.png" alt="iOS Development">
+                  <img src="/assets/images/ser-icon10.png" alt="iOS mobile app development services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/mobile-application">iOS Development</a></h3>
@@ -121,7 +121,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon9.png" alt="Android Development">
+                  <img src="/assets/images/ser-icon9.png" alt="Android mobile app development services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/mobile-application">Android Development</a></h3>
@@ -134,7 +134,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon11.png" alt="Cross-Platform Development">
+                  <img src="/assets/images/ser-icon11.png" alt="Cross-platform mobile app development services icon - React Native Flutter" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/mobile-application">Cross-Platform Development</a></h3>
@@ -147,7 +147,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon12.png" alt="Mobile App Maintenance">
+                  <img src="/assets/images/ser-icon12.png" alt="Mobile app maintenance and support services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/mobile-application">App Maintenance & Support</a></h3>
@@ -235,6 +235,78 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
   <!-- Testimonial Section End -->
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devsdoc.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Mobile Application",
+        "item": "https://devsdoc.com/mobile-application"
+      }
+    ]
+  })} />
+  
+  <!-- Service Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Mobile Application Development",
+    "provider": {
+      "@type": "Organization",
+      "name": "DevsDoc",
+      "url": "https://devsdoc.com"
+    },
+    "areaServed": "Worldwide",
+    "description": "Expert mobile app development for iOS and Android using native and cross-platform solutions",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Mobile Development Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "iOS Development",
+            "description": "Build native iOS applications with Swift and Objective-C"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Android Development",
+            "description": "Develop native Android applications with Kotlin and Java"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Cross-Platform Development",
+            "description": "Build apps for both iOS and Android with React Native or Flutter"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "App Maintenance & Support",
+            "description": "Keep your mobile apps updated, secure, and performing optimally"
+          }
+        }
+      ]
+    }
+  })} />
   
   <Footer />
 </BaseLayout>

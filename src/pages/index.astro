@@ -15,8 +15,8 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout 
-  title="DevsDoc - Web, Mobile, AI & Cloud Development Services | Custom Software Solutions"
-  description="Transform your ideas into powerful software. Expert web development, mobile apps, data engineering, AI solutions, and cloud infrastructure. Trusted by businesses worldwide."
+  title="Web Development Services | Mobile Apps & AI Solutions - DevsDoc"
+  description="Transform ideas into powerful software. Expert web & mobile app development, AI solutions, and cloud infrastructure. 150+ projects delivered. Get started today."
   keywords="web development services, mobile app development, custom software development, data engineering, AI solutions, cloud computing, DevOps services, software consulting, React development, Node.js development"
   canonical="https://devsdoc.com/"
 >
@@ -30,6 +30,53 @@ import Footer from '../components/Footer.astro';
   <Testimonial />
   <Team />
   <FAQ />
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devsdoc.com"
+      }
+    ]
+  })} />
+  
+  <!-- FAQ Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does DevsDoc offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer comprehensive software development services including web application development using modern frameworks like React, Node.js, and Python; mobile app development for native iOS, Android, and cross-platform solutions; data engineering & AI strategy including data pipelines, AI implementation, and analytics solutions; and cloud & DevOps services including cloud migration, CI/CD pipelines, and infrastructure automation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What technologies and frameworks do you use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We use modern, industry-standard technologies including React, Vue.js, Angular, Next.js, TypeScript for frontend; Node.js, Python (Django, Flask), Ruby, .NET for backend; React Native, Flutter, Swift, Kotlin for mobile; AWS, Azure, Google Cloud Platform for cloud; PostgreSQL, MongoDB, MySQL, Redis for databases; and Docker, Kubernetes, Jenkins, GitHub Actions for DevOps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide ongoing support and maintenance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! We offer comprehensive support and maintenance services including 24/7 support for critical issues, regular updates with security patches and feature enhancements, performance monitoring and optimization, scalability management as your business grows, and dedicated technical support channels. Support packages are customizable based on your needs."
+        }
+      }
+    ]
+  })} />
+  
   <CTA />
   <Footer />
 </BaseLayout>

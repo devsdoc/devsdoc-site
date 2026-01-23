@@ -85,8 +85,8 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <BaseLayout 
-  title="Cloud & DevOps Services | AWS, Azure, CI/CD Solutions - DevsDoc"
-  description="Expert Cloud and DevOps services. Cloud migration, infrastructure automation, CI/CD pipelines, containerization with Docker and Kubernetes. Scalable cloud solutions for your business."
+  title="Cloud & DevOps Services | AWS Azure CI/CD - DevsDoc"
+  description="Expert cloud migration and DevOps services. AWS, Azure, GCP infrastructure automation, CI/CD pipelines, Docker, Kubernetes. Scalable cloud solutions. Free consultation."
   keywords="cloud services, DevOps, AWS, Azure, GCP, cloud migration, CI/CD pipelines, Docker, Kubernetes, infrastructure automation, cloud architecture, DevOps consulting"
   canonical="https://devsdoc.com/cloud-devops"
 >
@@ -108,7 +108,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/counter-1.png" alt="Cloud Migration">
+                  <img src="/assets/images/counter-1.png" alt="Cloud migration services icon - AWS Azure GCP" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/cloud-devops">Cloud Migration</a></h3>
@@ -121,7 +121,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/counter-2.png" alt="CI/CD Pipelines">
+                  <img src="/assets/images/counter-2.png" alt="CI/CD pipeline automation services icon" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/cloud-devops">CI/CD Pipelines</a></h3>
@@ -134,7 +134,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/counter-3.png" alt="Containerization">
+                  <img src="/assets/images/counter-3.png" alt="Containerization and orchestration services icon - Docker Kubernetes" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/cloud-devops">Containerization & Orchestration</a></h3>
@@ -147,7 +147,7 @@ import Footer from '../components/Footer.astro';
               <!-- Service Item Start -->
               <div class="service-item-04">
                 <div class="service-img">
-                  <img src="/assets/images/ser-icon11.png" alt="Infrastructure as Code">
+                  <img src="/assets/images/ser-icon11.png" alt="Infrastructure as Code services icon - Terraform Ansible" loading="lazy">
                 </div>
                 <div class="service-content">
                   <h3 class="title"><a href="/cloud-devops">Infrastructure as Code</a></h3>
@@ -235,6 +235,78 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
   <!-- Testimonial Section End -->
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devsdoc.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cloud & DevOps",
+        "item": "https://devsdoc.com/cloud-devops"
+      }
+    ]
+  })} />
+  
+  <!-- Service Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Cloud & DevOps Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "DevsDoc",
+      "url": "https://devsdoc.com"
+    },
+    "areaServed": "Worldwide",
+    "description": "Expert cloud migration and DevOps services including AWS, Azure, GCP infrastructure automation",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Cloud & DevOps Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Cloud Migration",
+            "description": "Seamlessly migrate infrastructure to AWS, Azure, or GCP with zero downtime"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "CI/CD Pipelines",
+            "description": "Automate software delivery with robust CI/CD pipelines using Jenkins, GitLab CI, GitHub Actions"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Containerization & Orchestration",
+            "description": "Containerize applications with Docker and orchestrate with Kubernetes"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Infrastructure as Code",
+            "description": "Manage infrastructure with Terraform, Ansible, or CloudFormation"
+          }
+        }
+      ]
+    }
+  })} />
   
   <Footer />
 </BaseLayout>

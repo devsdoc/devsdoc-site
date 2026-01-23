@@ -9,8 +9,8 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout 
-  title="Contact DevsDoc - Get a Free Consultation | Web, Mobile & AI Development"
-  description="Contact DevsDoc for your software development needs. Get expert consultation on web development, mobile apps, data engineering, AI solutions, and cloud infrastructure. Let's build something amazing together."
+  title="Contact DevsDoc | Free Software Development Consultation"
+  description="Get expert consultation on web development, mobile apps, data engineering, and AI solutions. Contact DevsDoc today for a free project consultation. Let's build something amazing."
   keywords="contact devsdoc, software development consultation, web development quote, mobile app quote, AI consulting, cloud services contact, software development inquiry"
   canonical="https://devsdoc.com/contact"
 >
@@ -153,6 +153,46 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
   <!-- Project Process End -->
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devsdoc.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://devsdoc.com/contact"
+      }
+    ]
+  })} />
+  
+  <!-- ContactPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact DevsDoc",
+    "description": "Contact DevsDoc for software development consultation",
+    "url": "https://devsdoc.com/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "DevsDoc",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+92-324-8788309",
+        "contactType": "Customer Service",
+        "email": "contact@devsdoc.com",
+        "availableLanguage": "English"
+      }
+    }
+  })} />
 
   <CTA />
   <Footer />

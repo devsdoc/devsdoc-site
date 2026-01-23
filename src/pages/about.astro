@@ -10,8 +10,8 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout 
-  title="About DevsDoc - Expert Software Development Team | Web, Mobile & AI Solutions"
-  description="Learn about DevsDoc's expert team specializing in web development, mobile apps, data engineering, and AI. 150+ projects delivered with 98% client satisfaction. Your trusted technology partner."
+  title="About DevsDoc | Expert Software Development Team"
+  description="Meet DevsDoc's expert team specializing in web development, mobile apps, data engineering, and AI. 150+ projects delivered with 98% client satisfaction. Your trusted technology partner."
   keywords="about devsdoc, software development company, expert developers, web development team, mobile app developers, AI engineers, cloud architects, agile development"
   canonical="https://devsdoc.com/about"
 >
@@ -71,7 +71,7 @@ import Footer from '../components/Footer.astro';
       <div class="choose-us-wrap">
         <header class="section-title text-center">
           <p class="sub-title">REASON TO CHOOSE US</p>
-          <h2 class="title">Comprehensive Technology Solutions for Modern Businesses</h2>
+          <h2 class="title">Expert Software Development Services for Growing Businesses</h2>
         </header>
         <div class="choose-us-content-wrap">
           <div class="row">
@@ -217,7 +217,7 @@ import Footer from '../components/Footer.astro';
               <!-- About Author Info Wrap Start -->
               <div class="about-author-info-wrap">
                 <div class="about-author">
-                  <img src="/assets/images/sign.png" alt="">
+                  <img src="/assets/images/sign.png" alt="DevsDoc team signature and company seal">
                   <h3 class="name">DevsDoc Team</h3>
                   <span class="designation">Technology Experts</span>
                 </div>
@@ -233,7 +233,7 @@ import Footer from '../components/Footer.astro';
           <div class="col-lg-6">
             <!-- Skill Right Start -->
             <div class="skill-right">
-              <p class="text">From modern web applications and mobile apps to sophisticated data pipelines and AI implementations, we deliver comprehensive solutions tailored to your business objectives. Our expertise spans the entire technology lifecycle: design, development, deployment, and ongoing optimization. We leverage industry-leading frameworks and cloud platforms to ensure your solutions are scalable, secure, and future-proof.</p>
+              <p class="text">From modern <a href="/web-application">web applications</a> and <a href="/mobile-application">mobile apps</a> to sophisticated <a href="/data-engineering">data pipelines</a> and AI implementations, we deliver comprehensive solutions tailored to your business objectives. Our expertise spans the entire technology lifecycle: design, development, deployment, and ongoing optimization. We leverage industry-leading frameworks including <a href="https://react.dev" rel="nofollow noopener" target="_blank">React</a>, <a href="https://vuejs.org" rel="nofollow noopener" target="_blank">Vue.js</a>, <a href="https://angular.io" rel="nofollow noopener" target="_blank">Angular</a>, <a href="https://nodejs.org" rel="nofollow noopener" target="_blank">Node.js</a>, <a href="https://www.python.org" rel="nofollow noopener" target="_blank">Python</a>, <a href="https://aws.amazon.com" rel="nofollow noopener" target="_blank">AWS</a>, <a href="https://azure.microsoft.com" rel="nofollow noopener" target="_blank">Azure</a>, and <a href="https://cloud.google.com" rel="nofollow noopener" target="_blank">Google Cloud Platform</a> to ensure your solutions are scalable, secure, and future-proof.</p>
               <div class="counter-bar">
                 <!-- Skill Item Start -->
                 <div class="skill-item">
@@ -287,6 +287,42 @@ import Footer from '../components/Footer.astro';
   <!-- Testimonial Section -->
   <Testimonial />
 
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devsdoc.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://devsdoc.com/about"
+      }
+    ]
+  })} />
+  
+  <!-- AboutPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About DevsDoc",
+    "description": "Learn about DevsDoc's expert software development team",
+    "url": "https://devsdoc.com/about",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "DevsDoc",
+      "foundingDate": "2020",
+      "numberOfEmployees": "10-50",
+      "description": "Professional software development company specializing in web applications, mobile apps, data engineering, AI solutions, and cloud infrastructure"
+    }
+  })} />
+  
   <!-- CTA Section -->
   <CTA />
 
