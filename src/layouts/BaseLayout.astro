@@ -1,6 +1,7 @@
 ---
-import '../styles/global.css';
-import WhatsAppWidget from '../components/WhatsAppWidget.astro';
+import "../styles/global.css";
+import WhatsAppWidget from "../components/WhatsAppWidget.astro";
+import ConstructionBanner from "../components/ConstructionBanner.astro";
 
 interface Props {
   title?: string;
@@ -11,17 +12,17 @@ interface Props {
   noindex?: boolean;
 }
 
-const { 
-  title = 'DevsDoc - Web, Mobile, AI & Cloud Development Services', 
-  description = 'Professional software development company specializing in web applications, mobile apps, data engineering, AI solutions, and cloud infrastructure. Transform your ideas into scalable technology.', 
-  keywords = 'web development, mobile app development, data engineering, AI solutions, cloud computing, DevOps, software development, custom software, React, Node.js, Python, AWS',
-  ogImage = '/assets/images/og-image.jpg',
+const {
+  title = "DevsDoc - Web, Mobile, AI & Cloud Development Services",
+  description = "Professional software development company specializing in web applications, mobile apps, data engineering, AI solutions, and cloud infrastructure. Transform your ideas into scalable technology.",
+  keywords = "web development, mobile app development, data engineering, AI solutions, cloud computing, DevOps, software development, custom software, React, Node.js, Python, AWS",
+  ogImage = "/assets/images/og-image.jpg",
   canonical,
-  noindex = false
+  noindex = false,
 } = Astro.props;
 
 const currentUrl = canonical || Astro.url.href;
-const siteName = 'DevsDoc';
+const siteName = "DevsDoc";
 ---
 
 <!doctype html>
@@ -30,21 +31,29 @@ const siteName = 'DevsDoc';
     <!-- Essential Meta Tags -->
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
     <!-- Resource Hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content="DevsDoc" />
-    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <meta
+      name="robots"
+      content={noindex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+    />
     <link rel="canonical" href={currentUrl} />
-    
+
     <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
@@ -56,33 +65,41 @@ const siteName = 'DevsDoc';
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={title} />
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    
+
     <!-- Favicon and Icons -->
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/intial.png" />
-    
+
     <!-- Theme and Color - Force Light Mode -->
     <meta name="color-scheme" content="light only" />
     <meta name="theme-color" content="#ffffff" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#ffffff" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#ffffff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#ffffff"
+    />
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <!-- Android Chrome -->
     <meta name="mobile-web-app-capable" content="yes" />
-    
+
     <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
       {
@@ -160,7 +177,7 @@ const siteName = 'DevsDoc';
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="/assets/css/style.css" />
-    
+
     <!-- Force Light Mode CSS - Comprehensive Override -->
     <style>
       /* Force light mode for the entire site - STRONG OVERRIDES */
@@ -169,18 +186,18 @@ const siteName = 'DevsDoc';
         --bs-body-bg: #ffffff !important;
         --bs-body-color: #000000 !important;
       }
-      
+
       html {
         color-scheme: light only !important;
         background-color: #ffffff !important;
       }
-      
+
       body {
         color-scheme: light only !important;
         background-color: #ffffff !important;
         color: #000000 !important;
       }
-      
+
       /* Override any dark mode media queries - STRONG - Works on all devices */
       @media (prefers-color-scheme: dark) {
         html,
@@ -210,13 +227,32 @@ const siteName = 'DevsDoc';
           background-color: #ffffff !important;
           color: #000000 !important;
         }
-        
+
         /* Force light backgrounds on all elements */
-        div, section, header, nav, main, footer, article, aside, p, h1, h2, h3, h4, h5, h6, span, a, li, ul, ol {
+        div,
+        section,
+        header,
+        nav,
+        main,
+        footer,
+        article,
+        aside,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        span,
+        a,
+        li,
+        ul,
+        ol {
           background-color: #ffffff !important;
           color: #000000 !important;
         }
-        
+
         /* Override any dark mode specific classes */
         .bg-dark,
         .bg-dark *,
@@ -226,14 +262,14 @@ const siteName = 'DevsDoc';
           color: #000000 !important;
         }
       }
-      
+
       /* Ensure all elements respect light mode */
       *,
       *::before,
       *::after {
         color-scheme: light only !important;
       }
-      
+
       /* Override Bootstrap dark mode classes if any */
       .bg-dark,
       .bg-dark *,
@@ -242,7 +278,7 @@ const siteName = 'DevsDoc';
         background-color: #ffffff !important;
         color: #000000 !important;
       }
-      
+
       /* Force light theme on offcanvas/sidebar */
       .offcanvas,
       .offcanvas-header,
@@ -251,7 +287,7 @@ const siteName = 'DevsDoc';
         background-color: #ffffff !important;
         color: #000000 !important;
       }
-      
+
       /* Mobile browser specific overrides */
       @media screen and (max-width: 768px) {
         html,
@@ -263,26 +299,28 @@ const siteName = 'DevsDoc';
         }
       }
     </style>
-    
+
     <!-- Early Script to Override matchMedia - Runs Before Page Load -->
     <script is:inline>
       // Override matchMedia for prefers-color-scheme BEFORE any scripts run
-      (function() {
+      (function () {
         const originalMatchMedia = window.matchMedia;
-        window.matchMedia = function(query) {
-          if (query.includes('prefers-color-scheme: dark')) {
+        window.matchMedia = function (query) {
+          if (query.includes("prefers-color-scheme: dark")) {
             // Return a MediaQueryList that always reports light mode
             const mql = originalMatchMedia.call(this, query);
             const originalMatches = mql.matches;
-            Object.defineProperty(mql, 'matches', {
-              get: function() { return false; },
-              configurable: true
+            Object.defineProperty(mql, "matches", {
+              get: function () {
+                return false;
+              },
+              configurable: true,
             });
             // Override addListener/removeListener to prevent dark mode detection
             if (mql.addEventListener) {
               const originalAddListener = mql.addEventListener.bind(mql);
-              mql.addEventListener = function(type, listener) {
-                if (type === 'change') {
+              mql.addEventListener = function (type, listener) {
+                if (type === "change") {
                   // Don't call listener since we're forcing light mode
                   return;
                 }
@@ -295,55 +333,70 @@ const siteName = 'DevsDoc';
         };
       })();
     </script>
-    
+
     <!-- Logo Theme Script - Force Light Theme -->
     <script is:inline>
       // Ensure correct logo based on theme
       // Since we're forcing light theme, always use logo-dd-w.png for navbar
       // Footer always uses dd-logo.png
-      (function() {
+      (function () {
         function forceLightThemeLogos() {
           // Force light theme logo for navbar (but not footer)
-          const logos = document.querySelectorAll('img[src*="dd-logo"], img[src*="logo-dd"]');
-          logos.forEach(function(logo) {
+          const logos = document.querySelectorAll(
+            'img[src*="dd-logo"], img[src*="logo-dd"]',
+          );
+          logos.forEach(function (logo) {
             // Skip footer logo - it should always use dd-logo.png
-            if (logo.id === 'footer-logo' || logo.closest('.footer-section')) {
+            if (logo.id === "footer-logo" || logo.closest(".footer-section")) {
               return;
             }
-            
+
             // Always use light theme logo (logo-dd-w.png) for navbar since we're forcing light theme
-            if (logo.src.includes('dd-logo.png') && !logo.src.includes('logo-dd-w.png')) {
-              logo.src = logo.src.replace('dd-logo.png', 'logo-dd-w.png');
+            if (
+              logo.src.includes("dd-logo.png") &&
+              !logo.src.includes("logo-dd-w.png")
+            ) {
+              logo.src = logo.src.replace("dd-logo.png", "logo-dd-w.png");
             }
             // Ensure logo-dd-w.png is used for navbar logos
-            if (!logo.src.includes('logo-dd-w.png') && (logo.id === 'navbar-logo' || logo.id === 'mobile-navbar-logo')) {
-              logo.src = '/logo-dd-w.png';
+            if (
+              !logo.src.includes("logo-dd-w.png") &&
+              (logo.id === "navbar-logo" || logo.id === "mobile-navbar-logo")
+            ) {
+              logo.src = "/logo-dd-w.png";
             }
           });
-          
+
           // Override picture source elements to always use light logo (but not footer)
-          const pictureElements = document.querySelectorAll('picture source[srcset*="dd-logo"]');
-          pictureElements.forEach(function(source) {
+          const pictureElements = document.querySelectorAll(
+            'picture source[srcset*="dd-logo"]',
+          );
+          pictureElements.forEach(function (source) {
             // Skip footer picture elements
-            if (source.closest('.footer-section')) {
+            if (source.closest(".footer-section")) {
               return;
             }
             // Remove dark mode source or change it to light logo
-            if (source.getAttribute('media') && source.getAttribute('media').includes('prefers-color-scheme: dark')) {
+            if (
+              source.getAttribute("media") &&
+              source
+                .getAttribute("media")
+                .includes("prefers-color-scheme: dark")
+            ) {
               source.remove();
             } else {
-              source.setAttribute('srcset', '/logo-dd-w.png');
+              source.setAttribute("srcset", "/logo-dd-w.png");
             }
           });
         }
-        
+
         // Run immediately if DOM is ready, otherwise wait
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', forceLightThemeLogos);
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", forceLightThemeLogos);
         } else {
           forceLightThemeLogos();
         }
-        
+
         // Also run after a short delay to catch dynamically loaded content
         setTimeout(forceLightThemeLogos, 100);
         setTimeout(forceLightThemeLogos, 500);
@@ -361,12 +414,19 @@ const siteName = 'DevsDoc';
       </div>
       <!-- Preloader End -->
 
+      <ConstructionBanner />
+
       <slot />
 
       <!-- back to top start -->
       <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-          <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        <svg
+          class="progress-circle svg-content"
+          width="100%"
+          height="100%"
+          viewBox="-1 -1 102 102"
+        >
+          <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
         </svg>
       </div>
       <!-- back to top end -->
@@ -390,25 +450,26 @@ const siteName = 'DevsDoc';
     <script is:inline src="/assets/js/plugins/back-to-top.js"></script>
     <script is:inline src="/assets/js/plugins/jquery.counterup.min.js"></script>
     <script is:inline src="/assets/js/plugins/appear.min.js"></script>
-    <script is:inline src="/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script is:inline src="/assets/js/plugins/jquery.magnific-popup.min.js"
+    ></script>
 
     <!-- Main JS -->
     <script is:inline src="/assets/js/main.js"></script>
-    
+
     <!-- Hide preloader when page loads -->
     <script is:inline>
-      window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader');
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
         if (preloader) {
-          preloader.style.display = 'none';
+          preloader.style.display = "none";
         }
       });
-      
+
       // Fallback: hide preloader after a short delay if load event doesn't fire
-      setTimeout(function() {
-        const preloader = document.getElementById('preloader');
+      setTimeout(function () {
+        const preloader = document.getElementById("preloader");
         if (preloader) {
-          preloader.style.display = 'none';
+          preloader.style.display = "none";
         }
       }, 1000);
     </script>

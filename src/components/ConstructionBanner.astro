@@ -1,0 +1,169 @@
+---
+
+---
+
+<div id="construction-banner" class="devsdoc-construction-banner">
+  <div class="container">
+    <div class="banner-content">
+      <i class="fas fa-tools construction-icon"></i>
+      <div class="text-content">
+        <span class="title">Start Construction Mode:</span>
+        <span class="message"
+          >We are currently upgrading our website experience.</span
+        >
+      </div>
+      <button id="dismiss-banner" class="dismiss-btn" aria-label="Dismiss">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Handle banner dismiss and body padding
+  document.addEventListener("DOMContentLoaded", () => {
+    const banner = document.getElementById("construction-banner");
+    const dismissBtn = document.getElementById("dismiss-banner");
+
+    if (banner) {
+      // Add padding to body to prevent content overlap at bottom
+      document.body.style.paddingBottom = banner.offsetHeight + "px";
+
+      // Update padding on resize
+      window.addEventListener("resize", () => {
+        if (banner.style.display !== "none") {
+          document.body.style.paddingBottom = banner.offsetHeight + "px";
+        }
+      });
+    }
+
+    if (dismissBtn && banner) {
+      dismissBtn.addEventListener("click", () => {
+        banner.style.display = "none";
+        document.body.style.paddingBottom = "0";
+      });
+    }
+  });
+</script>
+
+<style>
+  .devsdoc-construction-banner {
+    background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 2147483647 !important; /* Max z-index to stay on top of everything */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+    padding: 12px 0;
+    border-top: 2px solid #ff9f2a;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: "Jost", sans-serif;
+  }
+
+  .construction-icon {
+    color: #ff9f2a !important;
+    font-size: 20px;
+    animation: wrench 2.5s infinite ease-in-out;
+  }
+
+  .text-content {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #ffffff !important;
+    font-size: 15px;
+  }
+
+  .title {
+    font-weight: 700;
+    color: #ff9f2a !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .message {
+    font-weight: 400;
+    color: #ffffff !important;
+    opacity: 0.9;
+  }
+
+  .dismiss-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff !important;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 15px;
+    transition: all 0.2s ease;
+  }
+
+  .dismiss-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+
+  @keyframes wrench {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(-10deg);
+    }
+    20% {
+      transform: rotate(10deg);
+    }
+    30% {
+      transform: rotate(-10deg);
+    }
+    40% {
+      transform: rotate(10deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .construction-banner {
+      padding: 15px 0;
+    }
+
+    .banner-content {
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .construction-icon {
+      margin-top: 2px;
+    }
+
+    .text-content {
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .dismiss-btn {
+      margin-left: 5px;
+    }
+  }
+</style>
